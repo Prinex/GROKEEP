@@ -1,0 +1,6 @@
+# ignore cache files
+.vs/
+
+# ignore debug and object files
+bin
+obj/
