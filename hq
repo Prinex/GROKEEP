@@ -1,0 +1,37 @@
+[33mcommit 475b2a934637a668b27f5d29ebedd47424412410[m[33m ([m[1;36mHEAD -> [m[1;32mmaster[m[33m)[m
+Author: Prinex <songdahye00@gmail.com>
+Date:   Sat Feb 11 17:18:00 2023 +0000
+
+    modified apps's database design
+
+[33mcommit 22ace2bb9be3b0e81a476036529fe6cbaee35c05[m[33m ([m[1;31morigin/master[m[33m)[m
+Author: Prinex <songdahye00@gmail.com>
+Date:   Sat Feb 11 15:58:48 2023 +0000
+
+    modified the design of the database
+
+[33mcommit babf06aad1b265afd9a7925ef1f5cc5c2f3b4dab[m
+Author: Prinex <songdahye00@gmail.com>
+Date:   Mon Feb 6 16:54:21 2023 +0000
+
+    -designed the app's database schema
+    -generated 'lawful' stuff for the app: privacy policy and terms &
+    condition just to be like a in real life scenario
+
+[33mcommit 80ef49c1c6de183d4778425b9d87cf8032d2cf21[m[33m ([m[1;31morigin/register-login[m[33m, [m[1;31morigin/item-based-queries-features[m[33m, [m[1;32mregister-login[m[33m, [m[1;32mitem-based-queries-features[m[33m)[m
+Author: Prinex <songdahye00@gmail.com>
+Date:   Tue Jan 31 23:49:57 2023 +0000
+
+    MAUI template
+
+[33mcommit cfabd55a203f68370b05a22132fe95f5824376c5[m
+Author: Prinex <songdahye00@gmail.com>
+Date:   Tue Jan 31 23:33:55 2023 +0000
+
+    ignore this
+
+[33mcommit aaa4a09bf831a8ad0e8b242be4e45a13d8846069[m
+Author: Prinex <songdahye00@gmail.com>
+Date:   Tue Jan 31 23:33:17 2023 +0000
+
+    first commit
