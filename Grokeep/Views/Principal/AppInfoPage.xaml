@@ -2,7 +2,20 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="Grokeep.Views.Principal.AppInfoPage"
-             Title="AppInfoPage">
-    <Grid RowDefinitions="AUTO, AUTO">
+             Title="App Info Page">
+    <Grid BackgroundColor="WhiteSmoke" RowDefinitions="1000">
+        <Path Data="M 10, 50 L 50,250 200,10Z" Fill="#d9f2d9" Margin="-20,-17,0,0" />
+        <Path Data="M 100, 40 L 300,200 400,10Z" Fill="#d9f2d9" Margin="-100,20,0,0" Rotation="30"/>
+        <Path Data="M 100, 100 L 110,290 300,20Z" Fill="#d9f2d9" Margin="150,440,0,0" Rotation="1"/>
+        <Path Data="M 100, 100 L 10,290 350,90Z" Fill="#d9f2d9" Margin="-101,240,0,0" Rotation="20"/>
+        <Path Data="M 20, 1 L 30,190 300,30Z" Fill="#d9f2d9" Margin="-230,650,0,0" Rotation="60"/>
+        <VerticalStackLayout Grid.Row="0" Padding="21" Spacing="20">
+            <Label Text="Description" FontAttributes="Bold" FontSize="Title" TextDecorations="Underline"/>
+            <Label Text="Grokeep is an app with the purpose to offer you a way of analyzing grocery items' prices from different stores and a kind of way of keeping track of your groceries items bought ." FontSize="19" FontAttributes="Italic"/>
+            <Label Text="Features" FontAttributes="Bold" FontSize="Title" TextDecorations="Underline"/>
+            <Label Text="This app allows you to have grocery records of food items where you can add and modify information about items." FontSize="19"/>
+            <Label Text="Another feature is to allow you to view and analyze the history of items you bought with the help of a filtering functionality. You will be able to view your history according to your preferences, for example you can view the items according to most recent one that you bought or the cheapest."
+                   FontSize="19"/>
+        </VerticalStackLayout>
     </Grid>
 </ContentPage>

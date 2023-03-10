@@ -26,14 +26,15 @@
                   Title="App Information"
                   ContentTemplate="{DataTemplate principalViews:AppInfoPage}"
                   Route="AppInfoPage" />
-    <ShellContent Icon="rules.png"
-                  Title="Terms of Use"
-                  ContentTemplate="{DataTemplate principalViews:TermsOfUsePage}"
-                  Route="TermsOfUsePage" />
     <ShellContent Icon="policy.png"
                   Title="Privacy"
                   ContentTemplate="{DataTemplate principalViews:PrivacyPage}"
                   Route="PrivacyPage" />
+    <ShellContent Icon="rules.png"
+                  Title="Terms of Use"
+                  ContentTemplate="{DataTemplate principalViews:TermsOfUsePage}"
+                  Route="TermsOfUsePage" />
+    
     <Shell.FlyoutFooter>
         <Grid BackgroundColor="#2feb6d" HeightRequest="200">
             <Path Data="M 10, 50 L 50,150 100,10Z" Fill="#99ff99" Margin="-20" />
