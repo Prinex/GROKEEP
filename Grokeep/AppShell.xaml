@@ -4,11 +4,43 @@
     xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     xmlns:local="clr-namespace:Grokeep"
-    Shell.FlyoutBehavior="Disabled">
+    xmlns:principalInitial="clr-namespace:Grokeep.Views.Initial"
+    xmlns:principalViews="clr-namespace:Grokeep.Views.Principal">
 
-    <ShellContent
-        Title="Home"
-        ContentTemplate="{DataTemplate local:MainPage}"
-        Route="MainPage" />
-
+    <Shell.FlyoutHeader>
+        <Grid BackgroundColor="#2feb6d" HeightRequest="240">
+            <Path Data="M 10, 50 L 50,150 100,10Z" Fill="#99ff99" Margin="-20" />
+            <Path Data="M 200, 40 L 300,100 400,10Z" Fill="#99ff99" />
+            <Path Data="M 1000, 30 L 350,450 210,150Z" Fill="#99ff99" />
+            <Path Data="M 140, 20 L 120 200 190 150Z" Fill="#99ff99" Rotation="-20" Margin="-21,10,0,0" />
+            <Rectangle Fill="#99ff99" WidthRequest="100" HeightRequest="100" Margin="-150,250,100,10" Rotation="30" />
+            <Image Source="appiconfg.svg" />
+        </Grid>
+    </Shell.FlyoutHeader>
+    
+    <ShellContent Icon="main.png"
+                  Title="Main"
+                  ContentTemplate="{DataTemplate principalViews:MainPage}"
+                  Route="MainPage" />
+    <ShellContent Icon="info.png"
+                  Title="App Information"
+                  ContentTemplate="{DataTemplate principalViews:AppInfoPage}"
+                  Route="AppInfoPage" />
+    <ShellContent Icon="rules.png"
+                  Title="Terms of Use"
+                  ContentTemplate="{DataTemplate principalViews:TermsOfUsePage}"
+                  Route="TermsOfUsePage" />
+    <ShellContent Icon="policy.png"
+                  Title="Privacy"
+                  ContentTemplate="{DataTemplate principalViews:PrivacyPage}"
+                  Route="PrivacyPage" />
+    <Shell.FlyoutFooter>
+        <Grid BackgroundColor="#2feb6d" HeightRequest="200">
+            <Path Data="M 10, 50 L 50,150 100,10Z" Fill="#99ff99" Margin="-20" />
+            <Path Data="M 200, 40 L 300,100 400,10Z" Fill="#99ff99" />
+            <Path Data="M 1000, 30 L 350,450 210,150Z" Fill="#99ff99" />
+            <Path Data="M 140, 20 L 120 200 190 150Z" Fill="#99ff99" Rotation="-20" Margin="-21,10,0,0" />
+            <Rectangle Fill="#99ff99" WidthRequest="100" HeightRequest="100" Margin="-150,250,100,10" Rotation="30" />
+        </Grid>
+    </Shell.FlyoutFooter>
 </Shell>

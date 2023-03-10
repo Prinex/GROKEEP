@@ -1,25 +1,25 @@
 ﻿using Microsoft.Extensions.Logging;
 
-namespace Grokeep;
+namespace Grokeep.Views.Initial;
 
 public static class MauiProgram
 {
-	public static MauiApp CreateMauiApp()
-	{
-		var builder = MauiApp.CreateBuilder();
-		builder
-			.UseMauiApp<App>()
-			.ConfigureFonts(fonts =>
-			{
-				fonts.AddFont("RobotoBold", "RobotoB");
+    public static MauiApp CreateMauiApp()
+    {
+        var builder = MauiApp.CreateBuilder();
+        builder
+            .UseMauiApp<App>()
+            .ConfigureFonts(fonts =>
+            {
+                fonts.AddFont("RobotoBold", "RobotoB");
                 fonts.AddFont("RobotoLight", "RobotoL");
                 fonts.AddFont("RobotoRegular", "RobotoR");
             });
 
 #if DEBUG
-		builder.Logging.AddDebug();
+        builder.Logging.AddDebug();
 #endif
 
-		return builder.Build();
-	}
+        return builder.Build();
+    }
 }
