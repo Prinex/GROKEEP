@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="Grokeep.Views.Principal.AppInfoPage"
+             x:Class="Grokeep.Views.AppInfoPage"
              Title="App Info Page">
     <Grid BackgroundColor="WhiteSmoke" RowDefinitions="1000">
         <Path Data="M 10, 50 L 50,250 200,10Z" Fill="#d9f2d9" Margin="-20,-17,0,0" />

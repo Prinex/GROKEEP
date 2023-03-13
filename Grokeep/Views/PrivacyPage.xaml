@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="Grokeep.Views.Principal.PrivacyPage"
+             x:Class="Grokeep.Views.PrivacyPage"
              Title="Privacy Page">
     <WebView>
         <WebView.Source>
@@ -154,7 +154,7 @@
                     <h1>Contact Us</h1>
                     <p>If you have any questions about this Privacy Policy, You can contact us:</p>
                     <ul>
-                    <li>By email: <a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="3f505959565c5a7f584d50545a5a4f115c5052">[email&#160;protected]</a></li>
+                    <li>By email: grokeep@domain.com</li>
                     </ul><script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script>
                     ]]>
                 </HtmlWebViewSource.Html>
