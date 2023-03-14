@@ -1,12 +1,64 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:vm="clr-namespace:Grokeep.ViewModels"
+             x:DataType="vm:LoginPageViewModel"
              x:Class="Grokeep.Views.LoginPage"
-             Title="LoginPage">
-    <VerticalStackLayout>
-        <Label 
-            Text="Welcome to .NET MAUI!"
-            VerticalOptions="Center" 
-            HorizontalOptions="Center" />
-    </VerticalStackLayout>
+             Title="LoginPage"
+             Shell.NavBarIsVisible="False">
+    <!-- Will be using grid as the root layout throughout the views in order to allow me to have path in it as part of the design 
+         Might seem a clumsy way to do it-->
+    <Grid BackgroundColor="WhiteSmoke" RowDefinitions="1000">
+        <Path Data="M 10, 50 L 50,250 200,10Z" Fill="#d9f2d9" Margin="-20,-17,0,0"/>
+        <Path Data="M 100, 40 L 300,200 400,10Z" Fill="#d9f2d9" Margin="-100,20,0,0" Rotation="30"/>
+        <Path Data="M 100, 100 L 110,290 300,20Z" Fill="#d9f2d9" Margin="150,440,0,0" Rotation="1"/>
+        <Path Data="M 100, 100 L 10,290 350,90Z" Fill="#d9f2d9" Margin="-101,240,0,0" Rotation="20"/>
+        <Path Data="M 20, 1 L 30,190 300,30Z" Fill="#d9f2d9" Margin="-230,650,0,0" Rotation="60"/>
+
+        <VerticalStackLayout HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand" Margin="0,-700,0,0">
+            <Image Source="login.png"/>
+            <Label Text="Login" FontSize="30" FontAttributes="Bold" HorizontalTextAlignment="Center" Margin="0,30,0,0"/>
+        </VerticalStackLayout>
+
+        <VerticalStackLayout HorizontalOptions="CenterAndExpand" Margin="0,300,0,0" Spacing="20">
+            <Frame BackgroundColor="Transparent" BorderColor="#006400" HorizontalOptions="FillAndExpand" Padding="15">
+                <StackLayout Orientation="Horizontal" HeightRequest="40" WidthRequest="300">
+                    <Frame BackgroundColor="Transparent" Padding="0">
+                        <Image Source="username.png"/>
+                    </Frame>
+                    <Entry Placeholder="Username" PlaceholderColor="#a6a6a6" TextColor="Black" HorizontalOptions="FillAndExpand"
+                           Margin="5,0,0,0"/>
+                </StackLayout>
+            </Frame>
+            <Frame BackgroundColor="Transparent" BorderColor="#006400" HorizontalOptions="FillAndExpand" Padding="15">
+                <StackLayout Orientation="Horizontal" HeightRequest="40" WidthRequest="300">
+                    <Frame BackgroundColor="Transparent" Padding="0">
+                        <Image Source="lock.png"/>
+                    </Frame>
+                    <Entry Placeholder="Password" PlaceholderColor="#a6a6a6" IsPassword="True" TextColor="Black" HorizontalOptions="FillAndExpand"
+                           Margin="5,0,0,0"/>
+                </StackLayout>
+            </Frame>
+    
+        </VerticalStackLayout>
+        <HorizontalStackLayout Margin="-10,-10,0,0">
+            <HorizontalStackLayout Margin="30,0,0,0"> 
+                <CheckBox IsChecked="False"/>
+                <Label Text="Keep me logged in" TextColor="#a6a6a6" FontAttributes="Bold" VerticalTextAlignment="Center"/>
+            </HorizontalStackLayout>
+            <Label Text="Don't remember password" FontAttributes="Bold" TextDecorations="Underline" TextColor="#006400" HorizontalOptions="EndAndExpand" VerticalTextAlignment="Center" Margin="20,0,0,0"/>
+        </HorizontalStackLayout>
+        
+        <VerticalStackLayout Margin="32,550,0,0" Spacing="20" HorizontalOptions="CenterAndExpand">
+            <Button Text="Log in" WidthRequest="100" HeightRequest="50"/>
+            <Label Text="OR" FontSize="15" FontAttributes="Bold" TextColor="#a6a6a6" HorizontalOptions="CenterAndExpand"/>
+            <Label Text="Create an account" TextDecorations="Underline" FontAttributes="Bold" TextColor="#006400">
+                <Label.GestureRecognizers>
+                    <TapGestureRecognizer/>
+                </Label.GestureRecognizers>
+            </Label>
+
+        </VerticalStackLayout>
+    </Grid>
+    
 </ContentPage>

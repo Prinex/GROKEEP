@@ -1,5 +1,4 @@
-﻿using Android.App;
-using Grokeep.Models;
+﻿using Grokeep.Models;
 using SQLite;
 using SQLiteNetExtensions.Attributes;
 
@@ -15,11 +14,12 @@ public class UserService : IUserService
     
     public async Task DBInit()
     {
-        
         if (connection == null) 
         {
             connection = new SQLiteAsyncConnection(dbPath, flags);
             await connection.CreateTableAsync<User>();
+            // activate fk
+            await connection.ExecuteAsync("PRAGMA foreign_keys=ON");
         }
     }
     public async Task<User> RetrieveUser(string accountUsername)

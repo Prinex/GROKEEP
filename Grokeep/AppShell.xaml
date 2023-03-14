@@ -5,7 +5,8 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     xmlns:local="clr-namespace:Grokeep"
     xmlns:views="clr-namespace:Grokeep.Views">
-
+    
+    <!-- header design of the flyout-->
     <Shell.FlyoutHeader>
         <Grid BackgroundColor="#2feb6d" HeightRequest="240">
             <Path Data="M 10, 50 L 50,150 100,10Z" Fill="#99ff99" Margin="-20" />
@@ -17,6 +18,35 @@
         </Grid>
     </Shell.FlyoutHeader>
     
+    <!-- starting app pages -->
+    <!--
+    <ShellContent Title="Verifying"
+                  ContentTemplate="{DataTemplate views:RememberedUserPage}"
+                  Shell.TabBarIsVisible="False"
+                  Shell.FlyoutBehavior="Disabled"
+                  FlyoutItemIsVisible="False"
+                  Route="RememberedUserPage"/>
+    -->
+    <ShellContent Title="Login"
+                  ContentTemplate="{DataTemplate views:LoginPage}"
+                  Shell.TabBarIsVisible="False"
+                  Shell.FlyoutBehavior="Disabled"
+                  FlyoutItemIsVisible="False"
+                  Route="LoginPage"/>
+    <ShellContent Title="Register"
+                  ContentTemplate="{DataTemplate views:RegisterPage}"
+                  Shell.TabBarIsVisible="False"
+                  Shell.FlyoutBehavior="Disabled"
+                  FlyoutItemIsVisible="False"
+                  Route="RegisterPage"/>
+    <ShellContent Title="Change Password"
+                  ContentTemplate="{DataTemplate views:ForgotUserPasswordPage}"
+                  Shell.TabBarIsVisible="False"
+                  Shell.FlyoutBehavior="Disabled"
+                  FlyoutItemIsVisible="False"
+                  Route="ForgotUserPasswordPage"/>
+
+    <!-- main pages -->
     <ShellContent Icon="main.png"
                   Title="Main"
                   ContentTemplate="{DataTemplate views:MainPage}"
@@ -34,6 +64,7 @@
                   ContentTemplate="{DataTemplate views:TermsOfUsePage}"
                   Route="TermsOfUsePage" />
     
+    <!-- header design of the flyout-->
     <Shell.FlyoutFooter>
         <Grid BackgroundColor="#2feb6d" HeightRequest="200">
             <Path Data="M 10, 50 L 50,150 100,10Z" Fill="#99ff99" Margin="-20" />
