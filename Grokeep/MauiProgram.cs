@@ -32,15 +32,15 @@ public static class MauiProgram
         builder.Services.AddSingleton<PrivacyPage>();
         builder.Services.AddSingleton<AppInfoPage>();
         builder.Services.AddSingleton<RememberedUserPage>();
-        builder.Services.AddTransient<MainPage>();
+        builder.Services.AddSingleton<MainPage>();
         builder.Services.AddSingleton<LoginPage>();
-        builder.Services.AddSingleton<RegisterPage>();
+        builder.Services.AddTransient<RegisterPage>();
         builder.Services.AddTransient<ForgotUserPasswordPage>();
         
         // registering viewmodels
         builder.Services.AddSingleton<LoginPageViewModel>();
-        builder.Services.AddSingleton<RegisterPageViewModel>();
-        builder.Services.AddSingleton<ForgotUserPasswordPageViewModel>();
+        builder.Services.AddTransient<RegisterPageViewModel>();
+        builder.Services.AddTransient<ForgotUserPasswordPageViewModel>();
 
         return builder.Build();
     }

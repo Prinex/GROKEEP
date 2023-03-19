@@ -24,7 +24,7 @@
                     <Frame WidthRequest="40" BackgroundColor="White" Padding="0" BorderColor="Transparent">
                         <Image Source="username.png"/>
                     </Frame>
-                    <Entry Placeholder="Username" PlaceholderColor="#a6a6a6" TextColor="Black" HorizontalOptions="FillAndExpand"
+                    <Entry Text="{Binding UserCredentials.Username}" Placeholder="Username" PlaceholderColor="#a6a6a6" TextColor="Black" HorizontalOptions="FillAndExpand"
                                Margin="5,0,0,0"/>
                 </StackLayout>
             </Frame>
@@ -33,13 +33,13 @@
                     <Frame WidthRequest="40" BackgroundColor="White" Padding="2" BorderColor="Transparent">
                         <ImageButton Source="{Binding PassVisibImg}" Margin="0" Command="{Binding HidePassCommand}"/>
                     </Frame>
-                    <Entry Placeholder="Password" PlaceholderColor="#a6a6a6" IsPassword="{Binding PassVisibility}" TextColor="Black" HorizontalOptions="FillAndExpand"
+                    <Entry Text="{Binding UserCredentials.Password}" Placeholder="Password" PlaceholderColor="#a6a6a6" IsPassword="{Binding PassVisibility}" TextColor="Black" HorizontalOptions="FillAndExpand"
                                Margin="5,0,0,0"/>
                 </StackLayout>
             </Frame>
             
         </VerticalStackLayout>
-        <Button Text="Log in" WidthRequest="100" HeightRequest="50" HorizontalOptions="Center" Margin="0,100,0,0"/>
+        <Button Text="Register" Command="{Binding RegisterCommand}" WidthRequest="100" HeightRequest="50" HorizontalOptions="Center" Margin="0,100,0,0"/>
     </Grid>
     
 </ContentPage>
