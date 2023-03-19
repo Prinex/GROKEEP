@@ -1,6 +1,4 @@
-﻿using Grokeep.Models;
-
-namespace Grokeep.Services;
+﻿namespace Grokeep.Services;
 
 public interface IUserService
 {

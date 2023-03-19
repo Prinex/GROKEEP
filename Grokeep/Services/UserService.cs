@@ -1,8 +1,4 @@
-﻿using Grokeep.Models;
-using SQLite;
-using SQLiteNetExtensions.Attributes;
-
-namespace Grokeep.Services;
+﻿namespace Grokeep.Services;
 
 public class UserService : IUserService
 {

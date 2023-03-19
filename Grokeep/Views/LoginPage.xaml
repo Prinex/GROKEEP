@@ -6,8 +6,7 @@
              x:Class="Grokeep.Views.LoginPage"
              Title="LoginPage"
              Shell.NavBarIsVisible="False">
-    <!-- Will be using grid as the root layout throughout the views in order to allow me to have path in it as part of the design 
-         Might seem a clumsy way to do it-->
+    
     <Grid BackgroundColor="WhiteSmoke" RowDefinitions="1000">
         <Path Data="M 10, 50 L 50,250 200,10Z" Fill="#d9f2d9" Margin="-20,-17,0,0"/>
         <Path Data="M 100, 40 L 300,200 400,10Z" Fill="#d9f2d9" Margin="-100,20,0,0" Rotation="30"/>
@@ -21,44 +20,45 @@
         </VerticalStackLayout>
 
         <VerticalStackLayout HorizontalOptions="CenterAndExpand" Margin="0,300,0,0" Spacing="20">
-            <Frame BackgroundColor="Transparent" BorderColor="#006400" HorizontalOptions="FillAndExpand" Padding="15">
+            <Frame BackgroundColor="White" BorderColor="#006400" HorizontalOptions="FillAndExpand" Padding="15">
                 <StackLayout Orientation="Horizontal" HeightRequest="40" WidthRequest="300">
-                    <Frame BackgroundColor="Transparent" Padding="0">
+                    <Frame WidthRequest="40" BackgroundColor="White" Padding="0" BorderColor="Transparent">
                         <Image Source="username.png"/>
                     </Frame>
                     <Entry Placeholder="Username" PlaceholderColor="#a6a6a6" TextColor="Black" HorizontalOptions="FillAndExpand"
                            Margin="5,0,0,0"/>
                 </StackLayout>
             </Frame>
-            <Frame BackgroundColor="Transparent" BorderColor="#006400" HorizontalOptions="FillAndExpand" Padding="15">
+            <Frame BackgroundColor="White" BorderColor="#006400" HorizontalOptions="FillAndExpand" Padding="15">
                 <StackLayout Orientation="Horizontal" HeightRequest="40" WidthRequest="300">
-                    <Frame BackgroundColor="Transparent" Padding="0">
-                        <Image Source="lock.png"/>
+                    <Frame WidthRequest="40" BackgroundColor="White" Padding="2" BorderColor="Transparent">
+                        <ImageButton Source="{Binding PassVisibImg}" Margin="0" Command="{Binding HidePassCommand}"/>
                     </Frame>
-                    <Entry Placeholder="Password" PlaceholderColor="#a6a6a6" IsPassword="True" TextColor="Black" HorizontalOptions="FillAndExpand"
+                    <Entry Placeholder="Password" PlaceholderColor="#a6a6a6" IsPassword="{Binding PassVisibility}" TextColor="Black" HorizontalOptions="FillAndExpand"
                            Margin="5,0,0,0"/>
                 </StackLayout>
             </Frame>
-    
-        </VerticalStackLayout>
-        <HorizontalStackLayout Margin="-10,-10,0,0">
-            <HorizontalStackLayout Margin="30,0,0,0"> 
+
+            <HorizontalStackLayout Margin="-10,-25,0,0" HorizontalOptions="CenterAndExpand">
                 <CheckBox IsChecked="False"/>
-                <Label Text="Keep me logged in" TextColor="#a6a6a6" FontAttributes="Bold" VerticalTextAlignment="Center"/>
+                <Label Text="Keep me logged in" TextColor="#a6a6a6" FontAttributes="Bold" VerticalTextAlignment="Center" HorizontalTextAlignment="Center"/>
+                <Label Text="Don't remember password" FontAttributes="Bold" TextDecorations="Underline" TextColor="#006400" HorizontalOptions="EndAndExpand" VerticalTextAlignment="Center" Margin="20,0,0,0">
+                    <Label.GestureRecognizers>
+                        <TapGestureRecognizer Command="{Binding GoToForgotPasswordPageCommand}"/>
+                    </Label.GestureRecognizers>
+                </Label>
             </HorizontalStackLayout>
-            <Label Text="Don't remember password" FontAttributes="Bold" TextDecorations="Underline" TextColor="#006400" HorizontalOptions="EndAndExpand" VerticalTextAlignment="Center" Margin="20,0,0,0"/>
-        </HorizontalStackLayout>
+        </VerticalStackLayout>
         
-        <VerticalStackLayout Margin="32,550,0,0" Spacing="20" HorizontalOptions="CenterAndExpand">
+        <StackLayout Margin="0,550,0,0" Spacing="20" HorizontalOptions="CenterAndExpand">
             <Button Text="Log in" WidthRequest="100" HeightRequest="50"/>
             <Label Text="OR" FontSize="15" FontAttributes="Bold" TextColor="#a6a6a6" HorizontalOptions="CenterAndExpand"/>
             <Label Text="Create an account" TextDecorations="Underline" FontAttributes="Bold" TextColor="#006400">
                 <Label.GestureRecognizers>
-                    <TapGestureRecognizer/>
+                    <TapGestureRecognizer Command="{Binding GoToRegisterPageCommand}"/>
                 </Label.GestureRecognizers>
             </Label>
-
-        </VerticalStackLayout>
+        </StackLayout>
     </Grid>
-    
+
 </ContentPage>

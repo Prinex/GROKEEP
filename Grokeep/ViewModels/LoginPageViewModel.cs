@@ -1,12 +1,16 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Grokeep.ViewModels
+﻿namespace Grokeep.ViewModels;
+public partial class LoginPageViewModel : BaseViewModel
 {
-    class LoginPageViewModel
+    [RelayCommand]
+    public async void GoToRegisterPage()
     {
+        await Shell.Current.GoToAsync($"/{nameof(RegisterPage)}");
+    }
+
+    [RelayCommand]
+    public async void GoToForgotPasswordPage()
+    {
+        await Shell.Current.GoToAsync($"/{nameof(ForgotUserPasswordPage)}");
     }
 }
+

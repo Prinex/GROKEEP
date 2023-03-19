@@ -2,8 +2,9 @@ namespace Grokeep.Views;
 
 public partial class ForgotUserPasswordPage : ContentPage
 {
-	public ForgotUserPasswordPage()
+	public ForgotUserPasswordPage(ForgotUserPasswordPageViewModel vm)
 	{
 		InitializeComponent();
+		this.BindingContext = vm;
 	}
 }
