@@ -21,12 +21,15 @@ public partial class RegisterPageViewModel : BaseViewModel
         }
         else if (!string.IsNullOrEmpty(UserCredentials.Username) && !string.IsNullOrEmpty(UserCredentials.Password))
         {
+            // hash and salt the password when adding it to the dbs using scrypt hashing algorithm, a better choice than bcrypt today
+            // the salting part is included in the library function as part of the process of hashing the pwd
             try
             {
+                var encoder = new ScryptEncoder();
                 createResponse = await userService.AppendUser(new User
                 {
                     Username = UserCredentials.Username,
-                    Password = UserCredentials.Password
+                    Password = encoder.Encode(UserCredentials.Password)
                 });
             }
             catch

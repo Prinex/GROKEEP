@@ -1,6 +1,8 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:vm="clr-namespace:Grokeep.ViewModels"
+             x:DataType="vm:MainPageViewModel"
              x:Class="Grokeep.Views.MainPage"
              Title="Main Page">
     
@@ -11,7 +13,7 @@
         <Path Data="M 100, 100 L 10,290 350,90Z" Fill="#d9f2d9" Margin="-101,240,0,0" Rotation="20"/>
         <Path Data="M 20, 1 L 30,190 300,30Z" Fill="#d9f2d9" Margin="-230,650,0,0" Rotation="60"/>
         <VerticalStackLayout Grid.Row="0">
-            <Label Text="Welcome" HorizontalOptions="CenterAndExpand" Margin="50" FontSize="Title" FontAttributes="Bold"/>
+            <Label Text="{Binding AccountUsername, StringFormat='Welcome back {0}'}" HorizontalOptions="CenterAndExpand" Margin="50" FontSize="Title" FontAttributes="Bold"/>
             <VerticalStackLayout Padding="21" Spacing="20">
                 <Label Text="Checkout the 'App Information' page to find more about this app." FontSize="19"/>
                 <Label Text="To view terms of use and privacy policy checkout 'Terms of Use' and 'Privacy' pages" FontSize="19"/>

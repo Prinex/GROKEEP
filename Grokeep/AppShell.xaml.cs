@@ -7,6 +7,7 @@ public partial class AppShell : Shell
 	public AppShell()
 	{
         InitializeComponent();
+		this.BindingContext = new BaseViewModel();
 	
 		// registering routes to pages that are outside of appshell, or that are not displayed in the flyout like
 		

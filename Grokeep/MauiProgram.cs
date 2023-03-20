@@ -38,6 +38,7 @@ public static class MauiProgram
         builder.Services.AddTransient<ForgotUserPasswordPage>();
         
         // registering viewmodels
+        builder.Services.AddTransient<RememberedUserPageViewModel>();
         builder.Services.AddSingleton<LoginPageViewModel>();
         builder.Services.AddTransient<RegisterPageViewModel>();
         builder.Services.AddTransient<ForgotUserPasswordPageViewModel>();

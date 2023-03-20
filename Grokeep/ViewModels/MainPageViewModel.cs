@@ -1,12 +1,24 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Grokeep.ViewModels
+﻿namespace Grokeep.ViewModels;
+    
+public partial class MainPageViewModel : BaseViewModel
 {
-    class MainPageViewModel
+    [ObservableProperty]
+    private string accountUsername;
+
+    public MainPageViewModel()
     {
+        if (App.UserSessionData != null) 
+        {
+            AccountUsername = App.UserSessionData.Username;
+        }
+    }
+
+    public void RenewAccountUsername()
+    {
+        if (App.UserSessionData != null)
+        {
+            AccountUsername = App.UserSessionData.Username;
+        }
     }
 }
+

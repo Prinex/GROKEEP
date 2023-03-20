@@ -25,7 +25,7 @@
                     <Frame WidthRequest="40" BackgroundColor="White" Padding="0" BorderColor="Transparent">
                         <Image Source="username.png"/>
                     </Frame>
-                    <Entry Placeholder="Username" PlaceholderColor="#a6a6a6" TextColor="Black" HorizontalOptions="FillAndExpand"
+                    <Entry Text="{Binding UserCredentials.Username}" Placeholder="Username" PlaceholderColor="#a6a6a6" TextColor="Black" HorizontalOptions="FillAndExpand"
                            Margin="5,0,0,0"/>
                 </StackLayout>
             </Frame>
@@ -34,13 +34,13 @@
                     <Frame WidthRequest="40" BackgroundColor="White" Padding="2" BorderColor="Transparent">
                         <ImageButton Source="{Binding PassVisibImg}" Margin="0" Command="{Binding HidePassCommand}"/>
                     </Frame>
-                    <Entry Placeholder="Password" PlaceholderColor="#a6a6a6" IsPassword="{Binding PassVisibility}" TextColor="Black" HorizontalOptions="FillAndExpand"
+                    <Entry Text="{Binding UserCredentials.Password}" Placeholder="Password" PlaceholderColor="#a6a6a6" IsPassword="{Binding PassVisibility}" TextColor="Black" HorizontalOptions="FillAndExpand"
                            Margin="5,0,0,0"/>
                 </StackLayout>
             </Frame>
 
             <HorizontalStackLayout Margin="-10,-25,0,0" HorizontalOptions="CenterAndExpand">
-                <CheckBox IsChecked="False"/>
+                <CheckBox IsChecked="{Binding KeepUsrLoggedIn}"/>
                 <Label Text="Keep me logged in" TextColor="#a6a6a6" FontAttributes="Bold" VerticalTextAlignment="Center" HorizontalTextAlignment="Center"/>
                 <Label Text="Don't remember password" FontAttributes="Bold" TextDecorations="Underline" TextColor="#006400" HorizontalOptions="EndAndExpand" VerticalTextAlignment="Center" Margin="20,0,0,0">
                     <Label.GestureRecognizers>
@@ -51,7 +51,7 @@
         </VerticalStackLayout>
         
         <StackLayout Margin="0,550,0,0" Spacing="20" HorizontalOptions="CenterAndExpand">
-            <Button Text="Log in" WidthRequest="100" HeightRequest="50"/>
+            <Button Command="{Binding LoginCommand}" Text="Log in" WidthRequest="100" HeightRequest="50"/>
             <Label Text="OR" FontSize="15" FontAttributes="Bold" TextColor="#a6a6a6" HorizontalOptions="CenterAndExpand"/>
             <Label Text="Create an account" TextDecorations="Underline" FontAttributes="Bold" TextColor="#006400">
                 <Label.GestureRecognizers>

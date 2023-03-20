@@ -19,14 +19,14 @@
     </Shell.FlyoutHeader>
     
     <!-- starting app pages -->
-    <!--
+    <!-- first page is for entering into user account if keep me logge in check box was thicked -->
     <ShellContent Title="Verifying"
                   ContentTemplate="{DataTemplate views:RememberedUserPage}"
                   Shell.TabBarIsVisible="False"
                   Shell.FlyoutBehavior="Disabled"
                   FlyoutItemIsVisible="False"
                   Route="RememberedUserPage"/>
-    -->
+ 
     <ShellContent Title="Login"
                   ContentTemplate="{DataTemplate views:LoginPage}"
                   Shell.TabBarIsVisible="False"
@@ -72,6 +72,7 @@
             <Path Data="M 1000, 30 L 350,450 210,150Z" Fill="#99ff99" />
             <Path Data="M 140, 20 L 120 200 190 150Z" Fill="#99ff99" Rotation="-20" Margin="-21,10,0,0" />
             <Rectangle Fill="#99ff99" WidthRequest="100" HeightRequest="100" Margin="-150,250,100,10" Rotation="30" />
+            <Button Text="Log Out" Command="{Binding LogOutCommand}"/>
         </Grid>
     </Shell.FlyoutFooter>
 </Shell>

@@ -28,5 +28,14 @@ public partial class BaseViewModel : ObservableObject
             PassVisibility = true;
         }
     }
+
+    public async void LogOut()
+    {
+        if (Preferences.ContainsKey("KeepUsrLoggedIn"))
+        {
+            Preferences.Remove("KeepUsrLoggedIn");
+        }
+        await Shell.Current.GoToAsync($"//{nameof(LoginPage)}");
+    }
 }
 
