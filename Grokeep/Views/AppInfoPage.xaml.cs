@@ -1,4 +1,4 @@
-namespace Grokeep.Views.Principal;
+namespace Grokeep.Views;
 
 public partial class AppInfoPage : ContentPage
 {
