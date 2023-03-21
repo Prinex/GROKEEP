@@ -1,6 +1,4 @@
-﻿using Newtonsoft.Json;
-
-namespace Grokeep.ViewModels;
+﻿namespace Grokeep.ViewModels;
 
 public partial class RememberedUserPageViewModel : BaseViewModel
 {
@@ -11,6 +9,10 @@ public partial class RememberedUserPageViewModel : BaseViewModel
 
     public async void OptedForStayingLoggedIn()
     {
+        if (IsBusy == true)
+            return;
+        IsBusy = true;
+
         bool hasOpted = Preferences.Get("KeepUsrLoggedIn", false);
 
         if(hasOpted == true)
@@ -19,15 +21,18 @@ public partial class RememberedUserPageViewModel : BaseViewModel
             string serializedUserCredentials = Preferences.Get(nameof(App.UserSessionData), "");
             User deserializedUserCredentials = new User();
 
-            if (serializedUserCredentials != "") 
+            if (!string.IsNullOrWhiteSpace(serializedUserCredentials)) 
             {
                 deserializedUserCredentials = JsonConvert.DeserializeObject<User>(serializedUserCredentials);
                 App.UserSessionData = deserializedUserCredentials;
             }
+            IsBusy = false;
             await Shell.Current.GoToAsync($"//{nameof(MainPage)}");
         }
         else
         {
+
+            IsBusy = false;
             await Shell.Current.GoToAsync($"//{nameof(LoginPage)}");
         }
     }

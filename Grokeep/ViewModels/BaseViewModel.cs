@@ -29,6 +29,7 @@ public partial class BaseViewModel : ObservableObject
         }
     }
 
+    [RelayCommand]
     public async void LogOut()
     {
         if (Preferences.ContainsKey("KeepUsrLoggedIn"))

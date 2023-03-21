@@ -15,8 +15,11 @@ public partial class RegisterPageViewModel : BaseViewModel
     public async void Register()
     {
         bool createResponse = false;
+        IsBusy = true;
+
         if (string.IsNullOrEmpty(UserCredentials.Username) || string.IsNullOrEmpty(UserCredentials.Password))
         {
+            IsBusy = false;
             await Shell.Current.DisplayAlert("Warning", "Provide both username and password for creating your user account.", "OK");
         }
         else if (!string.IsNullOrEmpty(UserCredentials.Username) && !string.IsNullOrEmpty(UserCredentials.Password))
@@ -40,6 +43,7 @@ public partial class RegisterPageViewModel : BaseViewModel
             }
             finally
             {
+                IsBusy = false;
                 if (createResponse == true)
                 {
                     await Shell.Current.DisplayAlert("Succesfull operation", $"{UserCredentials.Username} account was successfully created.", "OK");

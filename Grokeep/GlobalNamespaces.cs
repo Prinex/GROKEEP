@@ -2,6 +2,8 @@
 
 global using CommunityToolkit.Mvvm.ComponentModel;
 global using CommunityToolkit.Mvvm.Input;
+global using Newtonsoft.Json;
+global using SQLitePCL;
 global using SQLite;
 global using SQLiteNetExtensions.Attributes;
 global using Scrypt;

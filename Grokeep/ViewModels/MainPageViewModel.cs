@@ -9,11 +9,11 @@ public partial class MainPageViewModel : BaseViewModel
     {
         if (App.UserSessionData != null) 
         {
-            AccountUsername = App.UserSessionData.Username;
+            accountUsername = App.UserSessionData.Username;
         }
     }
 
-    public void RenewAccountUsername()
+    public void DisplayAccountUsername()
     {
         if (App.UserSessionData != null)
         {

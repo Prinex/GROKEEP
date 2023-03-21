@@ -5,7 +5,7 @@
              x:DataType="vm:RememberedUserPageViewModel"
              x:Class="Grokeep.Views.RememberedUserPage"
              Title="RememberedUserPage">
-    <VerticalStackLayout>
-        <ActivityIndicator IsRunning="True" HeightRequest="57" WidthRequest="57" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand"/>
-    </VerticalStackLayout>
+    <StackLayout>
+        <ActivityIndicator IsVisible="{Binding IsBusy}" IsRunning="{Binding IsBusy}" HeightRequest="57" WidthRequest="57" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand"/>
+    </StackLayout>
 </ContentPage>
