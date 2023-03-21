@@ -7,21 +7,14 @@
     <SelectedPlatformGroup>Emulator</SelectedPlatformGroup>
     <DefaultDevice>pixel_3a_-_api_30</DefaultDevice>
   </PropertyGroup>
-  <PropertyGroup Condition="'$(TargetPlatformIdentifier)'=='iOS'">
-    <RuntimeIdentifier>ios-arm64</RuntimeIdentifier>
-    <PlatformTarget>arm64</PlatformTarget>
-  </PropertyGroup>
   <ItemGroup>
-    <MauiXaml Update="Views\ForgotUserPasswordPage.xaml">
+    <MauiXaml Update="Views\FilteringGroceryRecordsPage.xaml">
       <SubType>Designer</SubType>
     </MauiXaml>
-    <MauiXaml Update="Views\LoginPage.xaml">
+    <MauiXaml Update="Views\GroceryInventoriesPage.xaml">
       <SubType>Designer</SubType>
     </MauiXaml>
-    <MauiXaml Update="Views\RegisterPage.xaml">
-      <SubType>Designer</SubType>
-    </MauiXaml>
-    <MauiXaml Update="Views\RememberedUserPage.xaml">
+    <MauiXaml Update="Views\GroceryStatisticsPage.xaml">
       <SubType>Designer</SubType>
     </MauiXaml>
   </ItemGroup>

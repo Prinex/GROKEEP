@@ -65,6 +65,9 @@
 	</ItemGroup>
 
 	<ItemGroup>
+	  <Compile Update="Views\FilteringGroceryRecordsPage.xaml.cs">
+	    <DependentUpon>FilteringGroceryRecordsPage.xaml</DependentUpon>
+	  </Compile>
 	  <Compile Update="Views\Principal\PrivacyPage.xaml.cs">
 	    <DependentUpon>PrivacyPage.xaml</DependentUpon>
 	  </Compile>
@@ -72,6 +75,15 @@
 
 	<ItemGroup>
 	  <MauiXaml Update="Views\ForgotUserPasswordPage.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="Views\FilteringGroceryRecordsPage.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="Views\GroceryInventoriesPage.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="Views\GroceryStatisticsPage.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
 	  <MauiXaml Update="Views\Initial\AppInfoPage.xaml">

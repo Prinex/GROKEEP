@@ -51,6 +51,20 @@
                   Title="Main"
                   ContentTemplate="{DataTemplate views:MainPage}"
                   Route="MainPage" />
+    <FlyoutItem Title="Inventories" Icon="grocerylists.png" Shell.TabBarIsVisible="True">
+        <ShellContent Title="Inventories"
+                      Icon="records.png"
+                      ContentTemplate="{DataTemplate views:GroceryInventoriesPage}"
+                      Route="GroceryInventoriesPage"/>
+        <ShellContent Title="Filtering"
+                      Icon="filtering.png"
+                      ContentTemplate="{DataTemplate views:FilteringGroceryRecordsPage}"
+                      Route="GroceryFilteringPage"/>
+        <ShellContent Title="Statistics"
+                      Icon="stats.png"
+                      ContentTemplate="{DataTemplate views:GroceryStatisticsPage}"
+                      Route="GroceryStatisticsPage"/>
+    </FlyoutItem>
     <ShellContent Icon="info.png"
                   Title="App Information"
                   ContentTemplate="{DataTemplate views:AppInfoPage}"
@@ -63,7 +77,7 @@
                   Title="Terms of Use"
                   ContentTemplate="{DataTemplate views:TermsOfUsePage}"
                   Route="TermsOfUsePage" />
-   
+    
     <!-- header design of the flyout-->
     <Shell.FlyoutFooter>
         <Grid HeightRequest="200" Style="{StaticResource FooterHeaderShell}">
