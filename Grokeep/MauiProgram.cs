@@ -21,6 +21,9 @@ public static class MauiProgram
         
         // registering services 
         builder.Services.AddSingleton< IUserService, UserService>();
+        builder.Services.AddSingleton<IGroceryInventoryService, GroceryInventoryService>();
+        builder.Services.AddSingleton<IGroceryHistoryService, GroceryHistoryService>();
+        builder.Services.AddSingleton<IProductService, ProductService>();
 
         // registering views
         builder.Services.AddSingleton<TermsOfUsePage>();
@@ -33,6 +36,7 @@ public static class MauiProgram
         builder.Services.AddTransient<ForgotUserPasswordPage>();
         builder.Services.AddSingleton<MainPage>();
         builder.Services.AddTransient<ProfilePage>();
+        builder.Services.AddSingleton<GroceryInventoriesPage>();
 
         // registering viewmodels
         builder.Services.AddTransient<RememberedUserPageViewModel>();
@@ -41,6 +45,7 @@ public static class MauiProgram
         builder.Services.AddSingleton<MainPageViewModel>();
         builder.Services.AddTransient<ForgotUserPasswordPageViewModel>();
         builder.Services.AddTransient<ProfilePageViewModel>();
+        builder.Services.AddSingleton<GroceryInventoriesPageViewModel>();
         return builder.Build();
     }
 }

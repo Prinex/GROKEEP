@@ -1,16 +1,15 @@
 ﻿namespace Grokeep.Services;
-
-public class UserService : IUserService
+public class GroceryHistoryService : IGroceryHistoryService
 {
     public SQLiteAsyncConnection connection;
 
     public const string dbName = "grokeep.db";
     public const SQLite.SQLiteOpenFlags flags = SQLite.SQLiteOpenFlags.ReadWrite | SQLite.SQLiteOpenFlags.Create | SQLiteOpenFlags.SharedCache;
     public string dbPath = Path.Combine(FileSystem.AppDataDirectory, dbName);
-    
+
     public async Task DBInit()
     {
-        if (connection == null) 
+        if (connection == null)
         {
             connection = new SQLiteAsyncConnection(dbPath, flags);
             await connection.CreateTableAsync<User>();
@@ -21,31 +20,25 @@ public class UserService : IUserService
             await connection.ExecuteAsync("PRAGMA foreign_keys=ON");
         }
     }
-    public async Task<User> RetrieveUser(string accountUsername)
+
+    public async Task<List<GroceryHistory>> RetrieveHistory(int accountID)
     {
         await DBInit();
-        var request = await connection.Table<User>().Where(u => u.Username == accountUsername).FirstOrDefaultAsync();
-        return request ?? new User() { DoesExist = false };
+        var groceryHistory = await connection.Table<GroceryHistory>().Where(u => u.AccountID == accountID).ToListAsync();
+        return groceryHistory;
     }
 
-    public async Task<bool> AppendUser(User userModel)
+    public async Task<bool> AppendHistory(GroceryHistory history)
     {
         await DBInit();
-        var request = await connection.InsertAsync(userModel);
+        var request = await connection.InsertAsync(history);
         return request > 0;
     }
 
-    public async Task<bool> RemoveUser(User userModel)
+    public async Task<bool> RemoveHistory(GroceryHistory history)
     {
         await DBInit();
-        var request = await connection.DeleteAsync(userModel);
-        return request > 0;
-    }
-
-    public async Task<bool> UpdateUser(User userModel)
-    {
-        await DBInit();
-        var request = await connection.UpdateAsync(userModel);
+        var request = await connection.DeleteAsync(history);
         return request > 0;
     }
 }

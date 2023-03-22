@@ -1,16 +1,16 @@
 ﻿namespace Grokeep.Services;
 
-public class UserService : IUserService
+public class ProductService : IProductService
 {
     public SQLiteAsyncConnection connection;
 
     public const string dbName = "grokeep.db";
     public const SQLite.SQLiteOpenFlags flags = SQLite.SQLiteOpenFlags.ReadWrite | SQLite.SQLiteOpenFlags.Create | SQLiteOpenFlags.SharedCache;
     public string dbPath = Path.Combine(FileSystem.AppDataDirectory, dbName);
-    
+
     public async Task DBInit()
     {
-        if (connection == null) 
+        if (connection == null)
         {
             connection = new SQLiteAsyncConnection(dbPath, flags);
             await connection.CreateTableAsync<User>();
@@ -21,32 +21,33 @@ public class UserService : IUserService
             await connection.ExecuteAsync("PRAGMA foreign_keys=ON");
         }
     }
-    public async Task<User> RetrieveUser(string accountUsername)
+
+    public async Task<List<Product>> RetrieveProducts(int inventoryID)
     {
         await DBInit();
-        var request = await connection.Table<User>().Where(u => u.Username == accountUsername).FirstOrDefaultAsync();
-        return request ?? new User() { DoesExist = false };
+        var products = await connection.Table<Product>().Where(i => i.GroceryInventoryID == inventoryID).ToListAsync();
+        return products;
     }
 
-    public async Task<bool> AppendUser(User userModel)
+    public async Task<bool> AppendProduct(Product product)
     {
         await DBInit();
-        var request = await connection.InsertAsync(userModel);
-        return request > 0;
+        var response = await connection.InsertAsync(product);
+        return response > 0;
     }
 
-    public async Task<bool> RemoveUser(User userModel)
+    public async Task<bool> UpdateProduct(Product product)
     {
         await DBInit();
-        var request = await connection.DeleteAsync(userModel);
-        return request > 0;
+        var response = await connection.UpdateAsync(product);
+        return response > 0;
     }
 
-    public async Task<bool> UpdateUser(User userModel)
+    public async Task<bool> DeleteProduct(Product product)
     {
         await DBInit();
-        var request = await connection.UpdateAsync(userModel);
-        return request > 0;
+        var response = await connection.DeleteAsync(product);
+        return response > 0;
     }
 }
 
