@@ -1,8 +1,4 @@
-﻿using Grokeep.Services;
-using Grokeep.ViewModels;
-using Microsoft.Extensions.Logging;
-
-namespace Grokeep.Views.Initial;
+﻿namespace Grokeep.Views.Initial;
 
 public static class MauiProgram
 {
@@ -36,6 +32,7 @@ public static class MauiProgram
         builder.Services.AddTransient<RegisterPage>();
         builder.Services.AddTransient<ForgotUserPasswordPage>();
         builder.Services.AddSingleton<MainPage>();
+        builder.Services.AddTransient<ProfilePage>();
 
         // registering viewmodels
         builder.Services.AddTransient<RememberedUserPageViewModel>();
@@ -43,7 +40,7 @@ public static class MauiProgram
         builder.Services.AddTransient<RegisterPageViewModel>();
         builder.Services.AddSingleton<MainPageViewModel>();
         builder.Services.AddTransient<ForgotUserPasswordPageViewModel>();
-
+        builder.Services.AddTransient<ProfilePageViewModel>();
         return builder.Build();
     }
 }

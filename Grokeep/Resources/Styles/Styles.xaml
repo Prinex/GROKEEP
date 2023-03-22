@@ -113,7 +113,7 @@
         <Setter Property="BackgroundColor" Value="Transparent" />
         <Setter Property="FontFamily" Value="OpenSansRegular"/>
         <Setter Property="FontSize" Value="14" />
-        <Setter Property="PlaceholderColor" Value="{AppThemeBinding Light={StaticResource Gray200}, Dark={StaticResource Gray500}}" />
+        <Setter Property="PlaceholderColor" Value="{AppThemeBinding Light={StaticResource Gray500}, Dark={StaticResource Gray600}}" />
         <Setter Property="MinimumHeightRequest" Value="44"/>
         <Setter Property="MinimumWidthRequest" Value="44"/>
         <Setter Property="VisualStateManager.VisualStateGroups">
@@ -133,7 +133,7 @@
     <Style TargetType="Frame">
         <Setter Property="HasShadow" Value="True" />
         <Setter Property="BorderColor" Value="{AppThemeBinding Light={StaticResource Grass}, Dark={StaticResource Gray950}}" />
-        <Setter Property="BackgroundColor" Value="{AppThemeBinding Light={StaticResource CardColor}, Dark={StaticResource CardColor}}"/>
+        <Setter Property="BackgroundColor" Value="{AppThemeBinding Light={StaticResource CardColor}, Dark={StaticResource Gray300}}"/>
         <Setter Property="CornerRadius" Value="15" />
     </Style>
 

@@ -51,6 +51,10 @@
                   Title="Main"
                   ContentTemplate="{DataTemplate views:MainPage}"
                   Route="MainPage" />
+    <ShellContent Icon="profile.png"
+                  Title="Profile"
+                  ContentTemplate="{DataTemplate views:ProfilePage}"
+                  Route="ProfilePage" />
     <FlyoutItem Title="Inventories" Icon="grocerylists.png" Shell.TabBarIsVisible="True">
         <ShellContent Title="Inventories"
                       Icon="records.png"
@@ -80,7 +84,7 @@
     
     <!-- header design of the flyout-->
     <Shell.FlyoutFooter>
-        <Grid HeightRequest="200" Style="{StaticResource FooterHeaderShell}">
+        <Grid HeightRequest="177" Style="{StaticResource FooterHeaderShell}">
             <Path Data="M 10, 50 L 50,150 100,10Z" Margin="-20" />
             <Path Data="M 200, 40 L 300,100 400,10Z" />
             <Path Data="M 1000, 30 L 350,450 210,150Z" />

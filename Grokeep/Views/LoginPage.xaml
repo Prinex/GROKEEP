@@ -25,8 +25,7 @@
                     <Frame WidthRequest="40" Padding="0" BorderColor="Transparent">
                         <Image Source="username.png"/>
                     </Frame>
-                    <Entry Text="{Binding UserCredentials.Username}" Placeholder="Username" PlaceholderColor="{StaticResource Gray500Brush}" TextColor=
-                           "{StaticResource Black}" HorizontalOptions="FillAndExpand" Margin="5,0,0,0"/>
+                    <Entry Text="{Binding UserCredentials.Username}" Placeholder="Username" HorizontalOptions="FillAndExpand" Margin="5,0,0,0"/>
                 </StackLayout>
             </Frame>
             <Frame HorizontalOptions="FillAndExpand" Padding="15">
@@ -50,7 +49,7 @@
             </HorizontalStackLayout>
         </VerticalStackLayout>
         
-        <StackLayout Margin="0,580,0,0" Spacing="20" HorizontalOptions="CenterAndExpand">
+        <StackLayout Margin="0,560,0,0" Spacing="20" HorizontalOptions="CenterAndExpand">
             <Button Command="{Binding LoginCommand}" Text="Log in" WidthRequest="100" HeightRequest="50"/>
             <Label Text="OR" FontSize="15" FontAttributes="Bold" TextColor="{StaticResource Gray500Brush}" HorizontalOptions="CenterAndExpand"/>
             <Label Text="Create an account" TextDecorations="Underline" FontAttributes="Bold" TextColor="{StaticResource Grass}">
