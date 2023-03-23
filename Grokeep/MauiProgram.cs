@@ -36,7 +36,7 @@ public static class MauiProgram
         builder.Services.AddTransient<ForgotUserPasswordPage>();
         builder.Services.AddSingleton<MainPage>();
         builder.Services.AddTransient<ProfilePage>();
-        builder.Services.AddSingleton<GroceryInventoriesPage>();
+        builder.Services.AddTransient<GroceryInventoriesPage>();
 
         // registering viewmodels
         builder.Services.AddTransient<RememberedUserPageViewModel>();
@@ -45,7 +45,7 @@ public static class MauiProgram
         builder.Services.AddSingleton<MainPageViewModel>();
         builder.Services.AddTransient<ForgotUserPasswordPageViewModel>();
         builder.Services.AddTransient<ProfilePageViewModel>();
-        builder.Services.AddSingleton<GroceryInventoriesPageViewModel>();
+        builder.Services.AddTransient<GroceryInventoriesPageViewModel>();
         return builder.Build();
     }
 }
