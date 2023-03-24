@@ -1,6 +1,5 @@
-﻿using AndroidX.Annotations;
+﻿namespace Grokeep.Models;
 
-namespace Grokeep.Models;
 public class Product
 {
     [Column("productID"), PrimaryKey, AutoIncrement, NotNull, Unique]

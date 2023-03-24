@@ -65,6 +65,9 @@
 	</ItemGroup>
 
 	<ItemGroup>
+	  <Compile Update="Views\ViewInventoryProductsPage.xaml.cs">
+	    <DependentUpon>ViewInventoryProductsPage.xaml</DependentUpon>
+	  </Compile>
 	  <Compile Update="Views\FilteringGroceryRecordsPage.xaml.cs">
 	    <DependentUpon>FilteringGroceryRecordsPage.xaml</DependentUpon>
 	  </Compile>
@@ -74,6 +77,12 @@
 	</ItemGroup>
 
 	<ItemGroup>
+	  <MauiXaml Update="Views\AddInventoryProductPage.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="Views\ViewInventoryProductsPage.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
 	  <MauiXaml Update="Views\ForgotUserPasswordPage.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>

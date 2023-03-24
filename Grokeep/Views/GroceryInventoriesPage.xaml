@@ -21,8 +21,8 @@
                 </VerticalStackLayout>
             </Frame>
         </VerticalStackLayout>
-        <ActivityIndicator IsVisible="{Binding IsBusy}" IsRunning="{Binding IsBusy}" HorizontalOptions="FillAndExpand" VerticalOptions="CenterAndExpand" Margin="0,-530,0,0"/>
-        <BoxView WidthRequest="357" HeightRequest="1.5" Margin="0,-360,0,0" Opacity="0.4"/>
+        <ActivityIndicator IsVisible="{Binding IsBusy}" IsRunning="{Binding IsBusy}" HorizontalOptions="FillAndExpand" VerticalOptions="CenterAndExpand" Margin="0,-400,0,0"/>
+        <BoxView WidthRequest="357" HeightRequest="1.5" Margin="0,-350,0,0" Opacity="0.4"/>
 
         <CollectionView ItemsSource="{Binding Inventories}" Margin="0, 265" VerticalOptions="FillAndExpand">
             <CollectionView.ItemTemplate>
@@ -30,9 +30,15 @@
                     <SwipeView>
                         <SwipeView.RightItems>
                             <SwipeItems>
-                                <SwipeItem Text="Add Item" IconImageSource="add.png" BackgroundColor="{StaticResource Tertiary}"/>
-                                <SwipeItem Text="Edit" IconImageSource="edit.png" BackgroundColor="{StaticResource Gray500}"/>
-                                <SwipeItem Text="Delete" IconImageSource="delete.png" BackgroundColor="Red"/>
+                                <SwipeItem Text="Add Item" IconImageSource="add.png" BackgroundColor="{StaticResource Tertiary}"
+                                           CommandParameter="{Binding .}"
+                                           Command="{Binding Source={x:RelativeSource AncestorType={x:Type vm:GroceryInventoriesPageViewModel}}, Path=GoToViewInventoryProductPageCommand}"/>
+                                <SwipeItem Text="Edit" IconImageSource="edit.png" BackgroundColor="{StaticResource Gray500}"
+                                           CommandParameter="{Binding .}"
+                                           Command="{Binding Source={x:RelativeSource AncestorType={x:Type vm:GroceryInventoriesPageViewModel}}, Path=EditInventoryCommand}"/>
+                                <SwipeItem Text="Delete" IconImageSource="delete.png" BackgroundColor="Red"
+                                           CommandParameter="{Binding .}"
+                                           Command="{Binding Source={x:RelativeSource AncestorType={x:Type vm:GroceryInventoriesPageViewModel}}, Path=DeleteInventoryCommand}"/>
                             </SwipeItems>
                         </SwipeView.RightItems>
                         <Frame WidthRequest="370" Margin="0, 10">

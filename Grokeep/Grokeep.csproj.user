@@ -8,6 +8,12 @@
     <DefaultDevice>pixel_3a_-_api_30</DefaultDevice>
   </PropertyGroup>
   <ItemGroup>
+    <MauiXaml Update="Views\AddInventoryProductPage.xaml">
+      <SubType>Designer</SubType>
+    </MauiXaml>
+    <MauiXaml Update="Views\ViewInventoryProductsPage.xaml">
+      <SubType>Designer</SubType>
+    </MauiXaml>
     <MauiXaml Update="Views\FilteringGroceryRecordsPage.xaml">
       <SubType>Designer</SubType>
     </MauiXaml>

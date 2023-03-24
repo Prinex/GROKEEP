@@ -71,21 +71,70 @@ public partial class GroceryInventoriesPageViewModel : BaseViewModel
     }
 
     [RelayCommand]
-    public async Task DeleteInventory()
+    public async Task DeleteInventory(GroceryInventory inventory)
     {
-        
+        var deleteInventoryConfirmation = await Shell.Current.DisplayActionSheet($"Are you sure you want to delete {inventory.GroceryInventoryName} inventory?", "No", null, "Yes");
+        if (deleteInventoryConfirmation == "Yes")
+        {
+            IsBusy = true;
+            var inventoryProducts = await productService.RetrieveProducts(inventory.GroceryInventoryID);
+
+            for (int i = 0; i < inventoryProducts.Count; i++)
+            {
+                var removeProductResponse = await productService.DeleteProduct(inventoryProducts[i]);
+                if (removeProductResponse == false)
+                {
+                    IsBusy = false;
+                    await Shell.Current.DisplayAlert("Error", $"Issues occured while trying to delete the {inventory.GroceryInventoryName} inventory of items.", "OK");
+                    return;
+                }
+            }
+            var removeInventory = await inventoryService.RemoveInventory(inventory);
+            if (removeInventory == true)
+            {
+                IsBusy = false;
+                await GetInventories();
+            }
+            else
+            {
+                IsBusy = false;
+                await Shell.Current.DisplayAlert("Error", $"Issues occured while trying to delete the {inventory.GroceryInventoryName} inventory of items.", "OK");
+            }
+        }
     }
 
     [RelayCommand]
     public async Task EditInventory(GroceryInventory inventory)
     {
+        // can use this instead of query property to another page; there is only one field to be edited
         string newInventoryName = await Shell.Current.DisplayPromptAsync($"Edit {inventory.GroceryInventoryName} inventory", "Edit or insert a new name for the inventory.");
+        if (string.IsNullOrEmpty(newInventoryName))
+        {
+            await Shell.Current.DisplayAlert("Warning", $"The {inventory.GroceryInventoryName} cannot be updated to an inventory with no name.", "OK");
+        }
+        else
+        {
+            IsBusy = true;
+            inventory.GroceryInventoryName = newInventoryName;
+            bool updateResponse = await inventoryService.UpdateInventory(inventory);
+            IsBusy = false;
 
+            if (updateResponse == true)
+            {
+                // update the collection view ui
+                await GetInventories();
+            }
+            else
+                await Shell.Current.DisplayAlert("Error", $"Issues occured while trying to update the {inventory.GroceryInventoryName} inventory.", "OK");
+        }
     }
 
     [RelayCommand]
-    public async Task AddInventoryProduct()
+    public async Task GoToViewInventoryProductPage(GroceryInventory inventory)
     {
         // navigation with query property to another page another 
+        var navigationQueryParameters = new Dictionary<string, object>();
+        navigationQueryParameters.Add("Inventory", inventory);
+        await Shell.Current.GoToAsync($"/{nameof(ViewInventoryProductsPage)}", navigationQueryParameters);
     }
 }
