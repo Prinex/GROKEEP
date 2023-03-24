@@ -40,6 +40,7 @@ public static class MauiProgram
         builder.Services.AddTransient<ViewInventoryProductsPage>();
         builder.Services.AddTransient<AddInventoryProductPage>();
         builder.Services.AddTransient<EditInventoryProductPage>();
+        builder.Services.AddTransient<FilteringGroceryRecordsPage>();
 
         // registering viewmodels
         builder.Services.AddTransient<RememberedUserPageViewModel>();
@@ -52,6 +53,8 @@ public static class MauiProgram
         builder.Services.AddTransient<ViewInventoryProductsPageViewModel>();
         builder.Services.AddTransient<AddInventoryProductPageViewModel>();
         builder.Services.AddTransient<EditInventoryProductPageViewModel>();
+        builder.Services.AddTransient<FilteringGroceryRecordsPageViewModel>();
+
         return builder.Build();
     }
 }

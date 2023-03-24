@@ -79,6 +79,11 @@ public partial class GroceryInventoriesPageViewModel : BaseViewModel
             IsBusy = true;
             var inventoryProducts = await productService.RetrieveProducts(inventory.GroceryInventoryID);
 
+            if (inventoryProducts.Count == 0)
+            {
+                await Shell.Current.DisplayAlert("Warning", "There is no history to clear out.", "OK");
+                return;
+            }
             for (int i = 0; i < inventoryProducts.Count; i++)
             {
                 var removeProductResponse = await productService.DeleteProduct(inventoryProducts[i]);

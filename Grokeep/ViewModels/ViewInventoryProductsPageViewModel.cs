@@ -50,7 +50,7 @@ public partial class ViewInventoryProductsPageViewModel : BaseViewModel
     public async Task GoToEditProduct(Product product)
     {
         var navigationQueryParameters = new Dictionary<string, object>();
-        navigationQueryParameters.Add("Product", product);
+        navigationQueryParameters.Add("ProductInventory", product);
         await Shell.Current.GoToAsync($"/{nameof(EditInventoryProductPage)}", navigationQueryParameters);
     }
 
