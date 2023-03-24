@@ -29,6 +29,13 @@ public class ProductService : IProductService
         return products;
     }
 
+    public async Task<Product> RetrieveProduct(int inventoryID, int productID)
+    {
+        await DBInit();
+        var request = await connection.Table<Product>().Where(i => i.GroceryInventoryID == inventoryID && i.ProductID == productID).FirstOrDefaultAsync();
+        return request ?? new Product() { DoesExist = false };
+    }
+
     public async Task<bool> AppendProduct(Product product)
     {
         await DBInit();

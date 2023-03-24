@@ -2,6 +2,9 @@
 
 public class Product
 {
+    private bool doesExist = true;
+    public bool DoesExist { get => doesExist; set => doesExist = value; }
+
     [Column("productID"), PrimaryKey, AutoIncrement, NotNull, Unique]
     public int ProductID { get; set; }
 

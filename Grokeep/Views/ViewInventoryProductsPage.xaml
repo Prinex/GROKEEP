@@ -29,7 +29,7 @@
                             <SwipeItems>
                                 <SwipeItem Text="Edit" IconImageSource="edit.png" BackgroundColor="{StaticResource Gray500}"
                                            CommandParameter="{Binding .}"
-                                           Command="{Binding Source={x:RelativeSource AncestorType={x:Type vm:ViewInventoryProductsPageViewModel}}, Path=EditProductCommand}"/>
+                                           Command="{Binding Source={x:RelativeSource AncestorType={x:Type vm:ViewInventoryProductsPageViewModel}}, Path=GoToEditProductCommand}"/>
                                 <SwipeItem Text="Delete" IconImageSource="delete.png" BackgroundColor="Red"
                                            CommandParameter="{Binding .}"
                                            Command="{Binding Source={x:RelativeSource AncestorType={x:Type vm:ViewInventoryProductsPageViewModel}}, Path=DeleteProductCommand}"/>

@@ -47,9 +47,11 @@ public partial class ViewInventoryProductsPageViewModel : BaseViewModel
     }
 
     [RelayCommand]
-    public async Task EditProduct(Product product)
+    public async Task GoToEditProduct(Product product)
     {
-
+        var navigationQueryParameters = new Dictionary<string, object>();
+        navigationQueryParameters.Add("Product", product);
+        await Shell.Current.GoToAsync($"/{nameof(EditInventoryProductPage)}", navigationQueryParameters);
     }
 
     [RelayCommand]

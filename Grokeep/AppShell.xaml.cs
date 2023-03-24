@@ -16,5 +16,6 @@ public partial class AppShell : Shell
         Routing.RegisterRoute(nameof(ForgotUserPasswordPage), typeof(ForgotUserPasswordPage));
 		Routing.RegisterRoute(nameof(ViewInventoryProductsPage), typeof(ViewInventoryProductsPage));
         Routing.RegisterRoute(nameof(AddInventoryProductPage), typeof(AddInventoryProductPage));
+        Routing.RegisterRoute(nameof(EditInventoryProductPage), typeof(EditInventoryProductPage));
     }
 }
