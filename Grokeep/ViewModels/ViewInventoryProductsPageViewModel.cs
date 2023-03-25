@@ -1,7 +1,4 @@
-﻿using CommunityToolkit.Mvvm.Input;
-using System.Collections.ObjectModel;
-
-namespace Grokeep.ViewModels;
+﻿namespace Grokeep.ViewModels;
 
 [QueryProperty(nameof(Inventory), "Inventory")]
 public partial class ViewInventoryProductsPageViewModel : BaseViewModel

@@ -1,5 +1,6 @@
 ﻿// include all namespaces needed to be avaialable for different views / view models
 
+global using System.Collections.ObjectModel;
 global using Microsoft.Extensions.Logging; 
 global using CommunityToolkit.Mvvm.ComponentModel;
 global using CommunityToolkit.Mvvm.Input;
@@ -8,6 +9,7 @@ global using SQLitePCL;
 global using SQLite;
 global using SQLiteNetExtensions.Attributes;
 global using Scrypt;
+global using Syncfusion.Maui.Charts;
 
 global using Grokeep.Views;
 global using Grokeep.ViewModels;

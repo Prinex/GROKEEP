@@ -1,7 +1,4 @@
-﻿using IntelliJ.Lang.Annotations;
-using System.Collections.ObjectModel;
-
-namespace Grokeep.ViewModels;
+﻿namespace Grokeep.ViewModels;
 
 public partial class FilteringGroceryRecordsPageViewModel : BaseViewModel
 {

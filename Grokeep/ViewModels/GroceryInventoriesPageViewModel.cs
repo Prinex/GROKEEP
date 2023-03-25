@@ -1,6 +1,4 @@
-﻿using System.Collections.ObjectModel;
-
-namespace Grokeep.ViewModels;
+﻿namespace Grokeep.ViewModels;
 
 public partial class GroceryInventoriesPageViewModel : BaseViewModel
 {

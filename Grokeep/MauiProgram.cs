@@ -1,4 +1,6 @@
-﻿namespace Grokeep.Views.Initial;
+﻿using Syncfusion.Maui.Core.Hosting;
+
+namespace Grokeep.Views.Initial;
 
 public static class MauiProgram
 {
@@ -7,6 +9,7 @@ public static class MauiProgram
         var builder = MauiApp.CreateBuilder();
         builder
             .UseMauiApp<App>()
+            .ConfigureSyncfusionCore()
             .ConfigureFonts(fonts =>
             {
                 fonts.AddFont("RobotoBold", "RobotoB");
@@ -41,6 +44,7 @@ public static class MauiProgram
         builder.Services.AddTransient<AddInventoryProductPage>();
         builder.Services.AddTransient<EditInventoryProductPage>();
         builder.Services.AddTransient<FilteringGroceryRecordsPage>();
+        builder.Services.AddTransient<GroceryStatisticsPage>();
 
         // registering viewmodels
         builder.Services.AddTransient<RememberedUserPageViewModel>();
@@ -54,6 +58,7 @@ public static class MauiProgram
         builder.Services.AddTransient<AddInventoryProductPageViewModel>();
         builder.Services.AddTransient<EditInventoryProductPageViewModel>();
         builder.Services.AddTransient<FilteringGroceryRecordsPageViewModel>();
+        builder.Services.AddTransient<GroceryStatisticsPageViewModel>();
 
         return builder.Build();
     }

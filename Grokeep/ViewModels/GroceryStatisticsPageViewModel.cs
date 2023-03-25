@@ -1,12 +1,17 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿namespace Grokeep.ViewModels;
 
-namespace Grokeep.ViewModels
+public partial class GroceryStatisticsPageViewModel : BaseViewModel
 {
-    class GroceryStatisticsPageViewModel
+    private readonly IGroceryHistoryService historyService;
+
+    public Dictionary<string, double> totalExpensesByStore { get; set; } = new Dictionary<string, double>();
+
+    public GroceryStatisticsPageViewModel(IGroceryHistoryService historyService)
     {
+        this.historyService = historyService;
+        // initialization method for the dicionary
     }
+    // USING a dictionary get the total expenses spent at each store
+    // store is the key (x) and total expense is value (y)
 }
+
