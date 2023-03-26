@@ -11,6 +11,7 @@
     <Color x:Key="ShapeColor">#99ff99</Color>
     <Color x:Key="ShapeColor2">#d9f2d9</Color>
     <Color x:Key="White">White</Color>
+    <Color x:Key="Red">Red</Color>
     <Color x:Key="CardColor">#FAF9F8</Color>
     <Color x:Key="RootColor">WhiteSmoke</Color>
     <Color x:Key="Black">Black</Color>

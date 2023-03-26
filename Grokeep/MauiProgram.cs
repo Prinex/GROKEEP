@@ -1,6 +1,4 @@
-﻿using Grokeep.Services;
-using Grokeep.ViewModels;
-using Microsoft.Extensions.Logging;
+﻿using Syncfusion.Maui.Core.Hosting;
 
 namespace Grokeep.Views.Initial;
 
@@ -11,6 +9,7 @@ public static class MauiProgram
         var builder = MauiApp.CreateBuilder();
         builder
             .UseMauiApp<App>()
+            .ConfigureSyncfusionCore()
             .ConfigureFonts(fonts =>
             {
                 fonts.AddFont("RobotoBold", "RobotoB");
@@ -25,6 +24,9 @@ public static class MauiProgram
         
         // registering services 
         builder.Services.AddSingleton< IUserService, UserService>();
+        builder.Services.AddSingleton<IGroceryInventoryService, GroceryInventoryService>();
+        builder.Services.AddSingleton<IGroceryHistoryService, GroceryHistoryService>();
+        builder.Services.AddSingleton<IProductService, ProductService>();
 
         // registering views
         builder.Services.AddSingleton<TermsOfUsePage>();
@@ -36,6 +38,13 @@ public static class MauiProgram
         builder.Services.AddTransient<RegisterPage>();
         builder.Services.AddTransient<ForgotUserPasswordPage>();
         builder.Services.AddSingleton<MainPage>();
+        builder.Services.AddTransient<ProfilePage>();
+        builder.Services.AddTransient<GroceryInventoriesPage>();
+        builder.Services.AddTransient<ViewInventoryProductsPage>();
+        builder.Services.AddTransient<AddInventoryProductPage>();
+        builder.Services.AddTransient<EditInventoryProductPage>();
+        builder.Services.AddTransient<FilteringGroceryRecordsPage>();
+        builder.Services.AddTransient<GroceryStatisticsPage>();
 
         // registering viewmodels
         builder.Services.AddTransient<RememberedUserPageViewModel>();
@@ -43,6 +52,13 @@ public static class MauiProgram
         builder.Services.AddTransient<RegisterPageViewModel>();
         builder.Services.AddSingleton<MainPageViewModel>();
         builder.Services.AddTransient<ForgotUserPasswordPageViewModel>();
+        builder.Services.AddTransient<ProfilePageViewModel>();
+        builder.Services.AddTransient<GroceryInventoriesPageViewModel>();
+        builder.Services.AddTransient<ViewInventoryProductsPageViewModel>();
+        builder.Services.AddTransient<AddInventoryProductPageViewModel>();
+        builder.Services.AddTransient<EditInventoryProductPageViewModel>();
+        builder.Services.AddTransient<FilteringGroceryRecordsPageViewModel>();
+        builder.Services.AddTransient<GroceryStatisticsPageViewModel>();
 
         return builder.Build();
     }
