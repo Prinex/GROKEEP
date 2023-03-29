@@ -19,7 +19,7 @@
     </Shell.FlyoutHeader>
     
     <!-- starting app pages -->
-    <!-- first page is for entering into user account if keep me logge in check box was thicked by the user -->
+    <!-- first page is for entering into user account if keep me logged in check box was thicked by the user -->
     <ShellContent Title="Verifying"
                   ContentTemplate="{DataTemplate views:RememberedUserPage}"
                   Shell.TabBarIsVisible="False"
@@ -38,7 +38,7 @@
     <ShellContent Icon="main.png"
                   Title="Main"
                   ContentTemplate="{DataTemplate views:MainPage}"
-                  Route="MainPage" />
+                  Route="MainPage"/>
     <ShellContent Icon="profile.png"
                   Title="Profile"
                   ContentTemplate="{DataTemplate views:ProfilePage}"

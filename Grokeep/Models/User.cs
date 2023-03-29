@@ -1,6 +1,4 @@
-﻿using SQLite;
-
-namespace Grokeep.Models;
+﻿namespace Grokeep.Models;
 
 public class User
 {

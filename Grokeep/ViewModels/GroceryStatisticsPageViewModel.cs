@@ -42,13 +42,13 @@ public partial class GroceryStatisticsPageViewModel : BaseViewModel
             historyProducts = historyProducts.ToList();
             foreach (var product in historyProducts)
             {
-                if (TotalExpensesByStore.ContainsKey(product.Store.ToLower()))
+                if (TotalExpensesByStore.ContainsKey(product.Location.ToLower()))
                 {
-                    TotalExpensesByStore[product.Store] += product.Price;
+                    TotalExpensesByStore[product.Location] += product.Cost;
                 }
                 else
                 {
-                    TotalExpensesByStore.Add(product.Store, product.Price);
+                    TotalExpensesByStore.Add(product.Location, product.Cost);
                 }
             }
             foreach(var expense in TotalExpensesByStore)

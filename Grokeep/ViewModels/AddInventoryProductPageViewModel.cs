@@ -14,6 +14,9 @@ public partial class AddInventoryProductPageViewModel : BaseViewModel
 
     public AddInventoryProductPageViewModel(IProductService productService, IGroceryHistoryService historyService)
     {
+        // prevent empty string issue when binding to Date property from DatePicker
+        DateTime today = DateTime.Today;
+        ProductInventory.DateBought = today.ToString("yyy-MM-dd");
         this.productService = productService;
         this.historyService = historyService;
     }
@@ -21,7 +24,7 @@ public partial class AddInventoryProductPageViewModel : BaseViewModel
     [RelayCommand]
     public async Task AddProduct()
     {
-        if (string.IsNullOrEmpty(ProductInventory.Title) || ProductInventory.Price <= 0 || string.IsNullOrEmpty(ProductInventory.Store) || string.IsNullOrEmpty(ProductInventory.DateBought))
+        if (string.IsNullOrEmpty(ProductInventory.Description) || ProductInventory.Cost <= 0 || string.IsNullOrEmpty(ProductInventory.Location) || string.IsNullOrEmpty(ProductInventory.DateBought))
         {
             await Shell.Current.DisplayAlert("Warning", "One or more fields are empty or have an illogical value.", "OK");
             return;
@@ -34,9 +37,9 @@ public partial class AddInventoryProductPageViewModel : BaseViewModel
             var addProductQuery = await productService.AppendProduct(new Product
             {
                 GroceryInventoryID = Inventory.GroceryInventoryID,
-                Title = ProductInventory.Title,
-                Price = ProductInventory.Price,
-                Store = ProductInventory.Store,
+                Description = ProductInventory.Description,
+                Cost = ProductInventory.Cost,
+                Location = ProductInventory.Location,
                 DateBought = onlyDate.ToString("yyy/MM/dd")
             });
 
@@ -44,16 +47,16 @@ public partial class AddInventoryProductPageViewModel : BaseViewModel
             var addProductToHistory = await historyService.AppendHistory(new GroceryHistory
             {
                 AccountID = App.UserSessionData.AccountID,
-                Title = ProductInventory.Title,
-                Price = ProductInventory.Price,
-                Store = ProductInventory.Store,
+                Description = ProductInventory.Description,
+                Cost = ProductInventory.Cost,
+                Location = ProductInventory.Location,
                 DateBought = onlyDate.ToString("yyy/MM/dd")
             });
 
             if (addProductQuery == true && addProductToHistory == true)
             {
                 IsBusy = false;
-                await Shell.Current.DisplayAlert("Successfull operation", $"The {ProductInventory.Title} item has been added to {Inventory.GroceryInventoryName} inventory.", "OK");
+                await Shell.Current.DisplayAlert("Successfull operation", $"The {ProductInventory.Description} item has been added to {Inventory.GroceryInventoryName} inventory.", "OK");
             }
             else
             {

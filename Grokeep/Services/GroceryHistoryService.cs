@@ -41,5 +41,29 @@ public class GroceryHistoryService : IGroceryHistoryService
         var request = await connection.DeleteAsync(history);
         return request > 0;
     }
+
+    public async Task<bool> UpdateHistory(string previousProduct, Product currentProduct)
+    {
+        await DBInit();
+
+        var products = await RetrieveHistory(App.UserSessionData.AccountID);
+        GroceryHistory productToUpdate = new GroceryHistory();
+        for (int i = 0; i < products.Count; i++)
+        {
+            if (products[i].Description == previousProduct)
+            {
+                productToUpdate = products[i];
+                break;
+            }
+        }
+
+        productToUpdate.Description = currentProduct.Description;
+        productToUpdate.Cost = currentProduct.Cost;
+        productToUpdate.Location = currentProduct.Location;
+        productToUpdate.DateBought = currentProduct.DateBought;
+        
+        var request = await connection.UpdateAsync(productToUpdate);
+        return request > 0; 
+    }
 }
 

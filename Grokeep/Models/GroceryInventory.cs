@@ -7,7 +7,7 @@ public class GroceryInventory
     [Column("accountID"), ForeignKey(typeof(User)), NotNull]
     public int AccountID { get; set; }
 
-    [Column("groceryListName"), NotNull]
+    [Column("groceryInventoryName"), NotNull]
     public string GroceryInventoryName { get; set; }
 }
 
