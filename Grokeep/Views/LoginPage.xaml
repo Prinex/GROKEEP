@@ -48,8 +48,8 @@
                 </Label>
             </HorizontalStackLayout>
         </VerticalStackLayout>
-        
-        <StackLayout Margin="0,560,0,0" Spacing="20" HorizontalOptions="CenterAndExpand">
+      
+        <StackLayout Margin="0,540,0,0" Spacing="20" HorizontalOptions="CenterAndExpand">
             <Button Command="{Binding LoginCommand}" Text="Log in" WidthRequest="100" HeightRequest="50"/>
             <Label Text="OR" FontSize="15" FontAttributes="Bold" TextColor="{StaticResource Gray500Brush}" HorizontalOptions="CenterAndExpand"/>
             <Label Text="Create an account" TextDecorations="Underline" FontAttributes="Bold" TextColor="{StaticResource Grass}">

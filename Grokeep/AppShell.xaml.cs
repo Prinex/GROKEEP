@@ -1,6 +1,4 @@
-﻿using Grokeep.Views;
-
-namespace Grokeep;
+﻿namespace Grokeep;
 
 public partial class AppShell : Shell
 {
@@ -10,10 +8,10 @@ public partial class AppShell : Shell
 		this.BindingContext = new BaseViewModel();
 	
 		// registering routes to pages that are outside of appshell, or that are not displayed in the flyout like
-		
-		Routing.RegisterRoute(nameof(LoginPage), typeof(LoginPage));
         Routing.RegisterRoute(nameof(RegisterPage), typeof(RegisterPage));
         Routing.RegisterRoute(nameof(ForgotUserPasswordPage), typeof(ForgotUserPasswordPage));
+		Routing.RegisterRoute(nameof(RegisterPrivacyPolicyPage), typeof(RegisterPrivacyPolicyPage));
+		Routing.RegisterRoute(nameof(RegisterTermsAndConditionsPage), typeof(RegisterTermsAndConditionsPage));
 		Routing.RegisterRoute(nameof(ViewInventoryProductsPage), typeof(ViewInventoryProductsPage));
         Routing.RegisterRoute(nameof(AddInventoryProductPage), typeof(AddInventoryProductPage));
         Routing.RegisterRoute(nameof(EditInventoryProductPage), typeof(EditInventoryProductPage));

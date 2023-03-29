@@ -1,6 +1,6 @@
 ﻿using Syncfusion.Maui.Core.Hosting;
 
-namespace Grokeep.Views.Initial;
+namespace Grokeep.Views;
 
 public static class MauiProgram
 {
@@ -31,11 +31,12 @@ public static class MauiProgram
         // registering views
         builder.Services.AddSingleton<TermsOfUsePage>();
         builder.Services.AddSingleton<PrivacyPage>();
-        builder.Services.AddSingleton<PrivacyPage>();
         builder.Services.AddSingleton<AppInfoPage>();
         builder.Services.AddSingleton<RememberedUserPage>();
         builder.Services.AddSingleton<LoginPage>();
-        builder.Services.AddTransient<RegisterPage>();
+        builder.Services.AddSingleton<RegisterPage>();
+        builder.Services.AddTransient<RegisterPrivacyPolicyPage>();
+        builder.Services.AddTransient<RegisterTermsAndConditionsPage>();
         builder.Services.AddTransient<ForgotUserPasswordPage>();
         builder.Services.AddSingleton<MainPage>();
         builder.Services.AddTransient<ProfilePage>();
@@ -47,9 +48,10 @@ public static class MauiProgram
         builder.Services.AddTransient<GroceryStatisticsPage>();
 
         // registering viewmodels
+        builder.Services.AddSingleton<BaseViewModel>();
         builder.Services.AddTransient<RememberedUserPageViewModel>();
         builder.Services.AddSingleton<LoginPageViewModel>();
-        builder.Services.AddTransient<RegisterPageViewModel>();
+        builder.Services.AddSingleton<RegisterPageViewModel>();
         builder.Services.AddSingleton<MainPageViewModel>();
         builder.Services.AddTransient<ForgotUserPasswordPageViewModel>();
         builder.Services.AddTransient<ProfilePageViewModel>();
