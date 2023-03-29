@@ -58,6 +58,7 @@
 		<PackageReference Include="SQLitePCLRaw.core" Version="2.1.4" />
 		<PackageReference Include="SQLitePCLRaw.provider.dynamic_cdecl" Version="2.1.4" />
 		<PackageReference Include="SQLitePCLRaw.provider.sqlite3" Version="2.1.4" />
+		<PackageReference Include="Syncfusion.Maui.Charts" Version="21.1.35" />
 	</ItemGroup>
 
 	<ItemGroup>
@@ -65,13 +66,37 @@
 	</ItemGroup>
 
 	<ItemGroup>
+	  <Compile Update="Views\ViewInventoryProductsPage.xaml.cs">
+	    <DependentUpon>ViewInventoryProductsPage.xaml</DependentUpon>
+	  </Compile>
+	  <Compile Update="Views\FilteringGroceryRecordsPage.xaml.cs">
+	    <DependentUpon>FilteringGroceryRecordsPage.xaml</DependentUpon>
+	  </Compile>
 	  <Compile Update="Views\Principal\PrivacyPage.xaml.cs">
 	    <DependentUpon>PrivacyPage.xaml</DependentUpon>
 	  </Compile>
 	</ItemGroup>
 
 	<ItemGroup>
+	  <MauiXaml Update="Views\AddInventoryProductPage.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="Views\EditInventoryProductPage.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="Views\ViewInventoryProductsPage.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
 	  <MauiXaml Update="Views\ForgotUserPasswordPage.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="Views\FilteringGroceryRecordsPage.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="Views\GroceryInventoriesPage.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="Views\GroceryStatisticsPage.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
 	  <MauiXaml Update="Views\Initial\AppInfoPage.xaml">
@@ -93,6 +118,9 @@
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
 	  <MauiXaml Update="Views\Principal\TermsOfUsePage.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="Views\ProfilePage.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
 	  <MauiXaml Update="Views\RegisterPage.xaml">
