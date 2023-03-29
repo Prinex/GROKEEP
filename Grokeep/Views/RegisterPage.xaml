@@ -4,7 +4,10 @@
              xmlns:vm="clr-namespace:Grokeep.ViewModels"
              x:DataType="vm:RegisterPageViewModel"
              x:Class="Grokeep.Views.RegisterPage"
-             Title="RegisterPage">
+             Title="RegisterPage"
+             Shell.TabBarIsVisible="False"
+             Shell.FlyoutBehavior="Disabled"
+             Shell.FlyoutItemIsVisible="False">
 
     <Grid RowDefinitions="1000">
         <Path Data="M 10, 50 L 50,250 200,10Z" Margin="-20,-17,0,0"/>
@@ -18,7 +21,7 @@
             <Label Text="Account Creation" FontSize="30" FontAttributes="Bold" HorizontalTextAlignment="Center" Margin="0,30,0,0"/>
         </VerticalStackLayout>
 
-        <VerticalStackLayout HorizontalOptions="CenterAndExpand" Margin="0,300,0,0" Spacing="20">
+        <VerticalStackLayout HorizontalOptions="CenterAndExpand" Margin="0,270,0,0" Spacing="20">
             <Frame HorizontalOptions="FillAndExpand" Padding="15">
                 <StackLayout Orientation="Horizontal" HeightRequest="40" WidthRequest="300">
                     <Frame WidthRequest="40" Padding="0" BorderColor="Transparent">
@@ -37,9 +40,40 @@
                                Margin="5,0,0,0"/>
                 </StackLayout>
             </Frame>
-            <Button Text="Register" Command="{Binding RegisterCommand}" WidthRequest="100" HeightRequest="50" HorizontalOptions="Center" Margin="0,100,0,0"/>
+            <VerticalStackLayout Margin="0,-5" Spacing="5">
+                <HorizontalStackLayout HorizontalOptions="FillAndExpand">
+                    <CheckBox IsChecked="{Binding TermsRead}" Margin="0,-12"/>
+                    <Label>
+                        <Label.FormattedText>
+                            <FormattedString>
+                                <Span Text="I've read the "/>
+                                <Span Text="Terms and Conditions" TextDecorations="Underline" TextColor="{StaticResource Grass}" FontAttributes="Bold"/>
+                            </FormattedString>
+                        </Label.FormattedText>
+                        <Label.GestureRecognizers>
+                            <TapGestureRecognizer Command="{Binding GoToTermsConditionsPageCommand}"/>
+                        </Label.GestureRecognizers>
+                    </Label>
+                </HorizontalStackLayout>
+                <HorizontalStackLayout>
+                    <CheckBox IsChecked="{Binding PrivacyRead}" Margin="0, -12"/>
+                    <Label>
+                        <Label.FormattedText>
+                            <FormattedString>
+                                <Span Text="I've read the "/>
+                                <Span Text="Privacy Policy" TextDecorations="Underline" TextColor="{StaticResource Grass}" FontAttributes="Bold"/>
+                            </FormattedString>
+                        </Label.FormattedText>
+                        <Label.GestureRecognizers>
+                            <TapGestureRecognizer Command="{Binding GoToPrivacyPageCommand}"/>
+                        </Label.GestureRecognizers>
+                    </Label>
+                </HorizontalStackLayout>
+            </VerticalStackLayout>
+            <Button Text="Register" Command="{Binding RegisterCommand}" WidthRequest="100" HeightRequest="50" HorizontalOptions="Center" Margin="0,50,0,0"/>
         </VerticalStackLayout>
-        <ActivityIndicator IsVisible="{Binding IsBusy}" IsRunning="{Binding IsBusy}" HorizontalOptions="FillAndExpand" VerticalOptions="CenterAndExpand" Color="{StaticResource Grass}"/>
+        <ActivityIndicator IsVisible="{Binding IsBusy}" IsRunning="{Binding IsBusy}" HorizontalOptions="FillAndExpand" VerticalOptions="CenterAndExpand" Color="{StaticResource Grass}"
+                           Margin="0,40,0,0"/>
     </Grid>
     
 </ContentPage>

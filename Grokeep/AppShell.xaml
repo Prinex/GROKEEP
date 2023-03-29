@@ -19,32 +19,20 @@
     </Shell.FlyoutHeader>
     
     <!-- starting app pages -->
-    <!-- first page is for entering into user account if keep me logge in check box was thicked -->
+    <!-- first page is for entering into user account if keep me logge in check box was thicked by the user -->
     <ShellContent Title="Verifying"
                   ContentTemplate="{DataTemplate views:RememberedUserPage}"
                   Shell.TabBarIsVisible="False"
                   Shell.FlyoutBehavior="Disabled"
                   FlyoutItemIsVisible="False"
                   Route="RememberedUserPage"/>
- 
+
     <ShellContent Title="Login"
                   ContentTemplate="{DataTemplate views:LoginPage}"
                   Shell.TabBarIsVisible="False"
                   Shell.FlyoutBehavior="Disabled"
                   FlyoutItemIsVisible="False"
                   Route="LoginPage"/>
-    <ShellContent Title="Register"
-                  ContentTemplate="{DataTemplate views:RegisterPage}"
-                  Shell.TabBarIsVisible="False"
-                  Shell.FlyoutBehavior="Disabled"
-                  FlyoutItemIsVisible="False"
-                  Route="RegisterPage"/>
-    <ShellContent Title="Change Password"
-                  ContentTemplate="{DataTemplate views:ForgotUserPasswordPage}"
-                  Shell.TabBarIsVisible="False"
-                  Shell.FlyoutBehavior="Disabled"
-                  FlyoutItemIsVisible="False"
-                  Route="ForgotUserPasswordPage"/>
 
     <!-- main pages -->
     <ShellContent Icon="main.png"

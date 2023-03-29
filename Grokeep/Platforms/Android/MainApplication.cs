@@ -1,6 +1,6 @@
 ﻿using Android.App;
 using Android.Runtime;
-using Grokeep.Views.Initial;
+using Grokeep.Views;
 
 namespace Grokeep;
 
