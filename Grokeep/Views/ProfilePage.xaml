@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:vm="clr-namespace:Grokeep.ViewModels"
+             x:DataType="vm:ProfilePageViewModel"
+             x:Class="Grokeep.Views.ProfilePage"
+             Title="ProfilePage">
+    <Grid RowDefinitions="1000">
+        <Path Data="M 10, 50 L 50,250 200,10Z" Margin="-20,-17,0,0"/>
+        <Path Data="M 100, 40 L 300,200 400,10Z" Margin="-100,20,0,0" Rotation="30"/>
+        <Path Data="M 100, 100 L 110,290 300,20Z" Margin="150,440,0,0" Rotation="1"/>
+        <Path Data="M 100, 100 L 10,290 350,90Z" Margin="-101,240,0,0" Rotation="20"/>
+        <Path Data="M 20, 1 L 30,190 300,30Z" Margin="-230,650,0,0" Rotation="60"/>
+        
+        <Label Text="Profile" FontSize="Title" FontAttributes="Bold" HorizontalOptions="CenterAndExpand" Margin="100"/>
+
+        <VerticalStackLayout HorizontalOptions="CenterAndExpand" Margin="0,190,0,0" Spacing="20">
+            <Frame HorizontalOptions="FillAndExpand" Padding="15">
+                <StackLayout Orientation="Horizontal" HeightRequest="40" WidthRequest="300">
+                    <Frame WidthRequest="40" Padding="0" BorderColor="Transparent">
+                        <Image Source="username.png"/>
+                    </Frame>
+                    <Entry Text="{Binding AccountUsername}" Placeholder="Username" HorizontalOptions="FillAndExpand" Margin="5,0,0,0"/>
+                </StackLayout>
+            </Frame>
+            <Frame HorizontalOptions="FillAndExpand" Padding="15">
+                <StackLayout Orientation="Horizontal" HeightRequest="40" WidthRequest="300">
+                    <Frame WidthRequest="40" Padding="2" BorderColor="Transparent">
+                        <ImageButton Source="{Binding PassVisibImg}" Margin="0" Command="{Binding HidePassCommand}"/>
+                    </Frame>
+                    <Entry Text="{Binding AccountPassword}" Placeholder="Password" PlaceholderColor="{StaticResource Gray500Brush}" IsPassword="{Binding PassVisibility}" 
+                           HorizontalOptions="FillAndExpand" Margin="5,0,0,0"/>
+                </StackLayout>
+            </Frame>
+            
+            <HorizontalStackLayout HorizontalOptions="CenterAndExpand" Margin="0,70,0,0" Spacing="20">
+                <Button Command="{Binding ModifyCommand}"  Text="Modify" WidthRequest="100"/>
+                <Button Command="{Binding RemoveCommand}" Text="Remove" WidthRequest="100"/>
+            </HorizontalStackLayout>
+        </VerticalStackLayout>
+        <ActivityIndicator IsVisible="{Binding IsBusy}" IsRunning="{Binding IsBusy}" HorizontalOptions="FillAndExpand" VerticalOptions="CenterAndExpand" Margin="0,-200,0,0"/>
+    </Grid>
+</ContentPage>
