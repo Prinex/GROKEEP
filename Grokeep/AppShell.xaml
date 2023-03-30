@@ -4,44 +4,81 @@
     xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     xmlns:local="clr-namespace:Grokeep"
-    xmlns:principalInitial="clr-namespace:Grokeep.Views.Initial"
-    xmlns:principalViews="clr-namespace:Grokeep.Views.Principal">
-
+    xmlns:views="clr-namespace:Grokeep.Views">
+    
+    <!-- header design of the flyout-->
     <Shell.FlyoutHeader>
-        <Grid BackgroundColor="#2feb6d" HeightRequest="240">
-            <Path Data="M 10, 50 L 50,150 100,10Z" Fill="#99ff99" Margin="-20" />
-            <Path Data="M 200, 40 L 300,100 400,10Z" Fill="#99ff99" />
-            <Path Data="M 1000, 30 L 350,450 210,150Z" Fill="#99ff99" />
-            <Path Data="M 140, 20 L 120 200 190 150Z" Fill="#99ff99" Rotation="-20" Margin="-21,10,0,0" />
-            <Rectangle Fill="#99ff99" WidthRequest="100" HeightRequest="100" Margin="-150,250,100,10" Rotation="30" />
-            <Image Source="appiconfg.svg" />
+        <Grid HeightRequest="240" Style="{StaticResource FooterHeaderShell}">
+            <Path Data="M 10, 50 L 50,150 100,10Z" Margin="-20" />
+            <Path Data="M 200, 40 L 300,100 400,10Z" />
+            <Path Data="M 1000, 30 L 350,450 210,150Z" />
+            <Path Data="M 140, 20 L 120 200 190 150Z" Rotation="-20" Margin="-21,10,0,0" />
+            <Path Data="M 10, 0 L 10 100 390 50Z" WidthRequest="100" HeightRequest="100" Margin="-170,250,100,10" Rotation="70" />
+            <Image Source="appiconfg.svg"/>
         </Grid>
     </Shell.FlyoutHeader>
     
+    <!-- starting app pages -->
+    <!-- first page is for entering into user account if keep me logged in check box was thicked by the user -->
+    <ShellContent Title="Verifying"
+                  ContentTemplate="{DataTemplate views:RememberedUserPage}"
+                  Shell.TabBarIsVisible="False"
+                  Shell.FlyoutBehavior="Disabled"
+                  FlyoutItemIsVisible="False"
+                  Route="RememberedUserPage"/>
+
+    <ShellContent Title="Login"
+                  ContentTemplate="{DataTemplate views:LoginPage}"
+                  Shell.TabBarIsVisible="False"
+                  Shell.FlyoutBehavior="Disabled"
+                  FlyoutItemIsVisible="False"
+                  Route="LoginPage"/>
+
+    <!-- main pages -->
     <ShellContent Icon="main.png"
                   Title="Main"
-                  ContentTemplate="{DataTemplate principalViews:MainPage}"
-                  Route="MainPage" />
+                  ContentTemplate="{DataTemplate views:MainPage}"
+                  Route="MainPage"/>
+    <ShellContent Icon="profile.png"
+                  Title="Profile"
+                  ContentTemplate="{DataTemplate views:ProfilePage}"
+                  Route="ProfilePage" />
+    <FlyoutItem Title="Inventories" Icon="grocerylists.png" Shell.TabBarIsVisible="True">
+        <ShellContent Title="Inventories"
+                      Icon="records.png"
+                      ContentTemplate="{DataTemplate views:GroceryInventoriesPage}"
+                      Route="GroceryInventoriesPage"/>
+        <ShellContent Title="Filtering"
+                      Icon="filtering.png"
+                      ContentTemplate="{DataTemplate views:FilteringGroceryRecordsPage}"
+                      Route="GroceryFilteringPage"/>
+        <ShellContent Title="Statistics"
+                      Icon="stats.png"
+                      ContentTemplate="{DataTemplate views:GroceryStatisticsPage}"
+                      Route="GroceryStatisticsPage"/>
+    </FlyoutItem>
     <ShellContent Icon="info.png"
                   Title="App Information"
-                  ContentTemplate="{DataTemplate principalViews:AppInfoPage}"
+                  ContentTemplate="{DataTemplate views:AppInfoPage}"
                   Route="AppInfoPage" />
     <ShellContent Icon="policy.png"
                   Title="Privacy"
-                  ContentTemplate="{DataTemplate principalViews:PrivacyPage}"
+                  ContentTemplate="{DataTemplate views:PrivacyPage}"
                   Route="PrivacyPage" />
     <ShellContent Icon="rules.png"
                   Title="Terms of Use"
-                  ContentTemplate="{DataTemplate principalViews:TermsOfUsePage}"
+                  ContentTemplate="{DataTemplate views:TermsOfUsePage}"
                   Route="TermsOfUsePage" />
     
+    <!-- header design of the flyout-->
     <Shell.FlyoutFooter>
-        <Grid BackgroundColor="#2feb6d" HeightRequest="200">
-            <Path Data="M 10, 50 L 50,150 100,10Z" Fill="#99ff99" Margin="-20" />
-            <Path Data="M 200, 40 L 300,100 400,10Z" Fill="#99ff99" />
-            <Path Data="M 1000, 30 L 350,450 210,150Z" Fill="#99ff99" />
-            <Path Data="M 140, 20 L 120 200 190 150Z" Fill="#99ff99" Rotation="-20" Margin="-21,10,0,0" />
-            <Rectangle Fill="#99ff99" WidthRequest="100" HeightRequest="100" Margin="-150,250,100,10" Rotation="30" />
+        <Grid HeightRequest="177" Style="{StaticResource FooterHeaderShell}">
+            <Path Data="M 10, 50 L 50,150 100,10Z" Margin="-20" />
+            <Path Data="M 200, 40 L 300,100 400,10Z" />
+            <Path Data="M 1000, 30 L 350,450 210,150Z" />
+            <Path Data="M 140, 20 L 120 200 190 150Z" Rotation="-20" Margin="-21,10,0,0" />
+            <Path Data="M 10, 0 L 10 100 390 50Z" WidthRequest="100" HeightRequest="100" Margin="-170,250,100,10" Rotation="70" />
+            <Button Text="Log Out" Command="{Binding LogOutCommand}" BackgroundColor="{StaticResource Grass}" WidthRequest="100" VerticalOptions="Center"/>
         </Grid>
     </Shell.FlyoutFooter>
 </Shell>

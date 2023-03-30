@@ -1,5 +1,5 @@
 ﻿using Foundation;
-using Grokeep.Views.Initial;
+using Grokeep.Views;
 
 namespace Grokeep;
 
