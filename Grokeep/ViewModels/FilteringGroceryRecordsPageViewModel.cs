@@ -112,7 +112,7 @@ public partial class FilteringGroceryRecordsPageViewModel : BaseViewModel
             // 1. filter by item keyword
             if (!string.IsNullOrEmpty(ItemKeyword))
             {
-                productsHistoryDB = productsHistoryDB.FindAll(k => k.Title.ToLower() == ItemKeyword.ToLower() || k.Title.ToLower().Contains(ItemKeyword.ToLower()) == true).ToList();
+                productsHistoryDB = productsHistoryDB.FindAll(k => k.Description.ToLower() == ItemKeyword.ToLower() || k.Description.ToLower().Contains(ItemKeyword.ToLower()) == true).ToList();
                 // loop through the history and add all items to the collection view
                 foreach (var product in productsHistoryDB)
                 {
@@ -124,7 +124,8 @@ public partial class FilteringGroceryRecordsPageViewModel : BaseViewModel
             // 2. filter by store: select items bought from a specific store
             if (!string.IsNullOrEmpty(StoreLocation))
             {
-                productsHistoryDB = productsHistoryDB.FindAll(k => k.Store.ToLower() == StoreLocation.ToLower() || k.Store.ToLower().Contains(StoreLocation.ToLower()) == true).ToList();
+                ProductsHistory.Clear();
+                productsHistoryDB = productsHistoryDB.FindAll(k => k.Location.ToLower() == StoreLocation.ToLower() || k.Location.ToLower().Contains(StoreLocation.ToLower()) == true).ToList();
                 
                 foreach (var product in productsHistoryDB)
                 {
@@ -136,13 +137,14 @@ public partial class FilteringGroceryRecordsPageViewModel : BaseViewModel
             // 3.filter by price order(asc - desc)
             if (!string.IsNullOrEmpty(PriceOrder))
             {
+                ProductsHistory.Clear();
                 if (PriceOrder == "Ascending")
                 {
-                    productsHistoryDB = productsHistoryDB.OrderBy(p => p.Price).ToList();
+                    productsHistoryDB = productsHistoryDB.OrderBy(p => p.Cost).ToList();
                 }
                 if (PriceOrder == "Descending")
                 {
-                    productsHistoryDB = productsHistoryDB.OrderByDescending(p => p.Price).ToList();
+                    productsHistoryDB = productsHistoryDB.OrderByDescending(p => p.Cost).ToList();
                 }
                 
                 foreach (var product in productsHistoryDB)
@@ -155,6 +157,7 @@ public partial class FilteringGroceryRecordsPageViewModel : BaseViewModel
             // 4.filter by date order(asc - desc)
             if (!string.IsNullOrEmpty(DateOrder))
             {
+                ProductsHistory.Clear();
                 if (DateOrder == "Ascending")
                 {
                     productsHistoryDB = productsHistoryDB.OrderBy(p => p.DateBought).ToList();

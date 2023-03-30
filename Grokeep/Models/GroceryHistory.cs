@@ -8,14 +8,14 @@ public class GroceryHistory
     [Column("accountID"), ForeignKey(typeof(User)), NotNull]
     public int AccountID { get; set; }
 
-    [Column("title"), NotNull]
-    public string Title { get; set; }
+    [Column("description"), NotNull]
+    public string Description { get; set; }
 
-    [Column("price"), NotNull]
-    public double Price { get; set; }
+    [Column("cost"), NotNull]
+    public double Cost { get; set; }
 
-    [Column("store"), NotNull]
-    public string Store { get; set; }
+    [Column("location"), NotNull]
+    public string Location { get; set; }
 
     [Column("dateBought"), NotNull]
     public string DateBought { get; set; }

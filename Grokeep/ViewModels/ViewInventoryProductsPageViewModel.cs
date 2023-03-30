@@ -54,7 +54,7 @@ public partial class ViewInventoryProductsPageViewModel : BaseViewModel
     [RelayCommand]
     public async Task DeleteProduct(Product product)
     {
-        var deleteProductConfirmation = await Shell.Current.DisplayActionSheet($"Are you sure you want to delete {product.Title} inventory?", "No", null, "Yes");
+        var deleteProductConfirmation = await Shell.Current.DisplayActionSheet($"Are you sure you want to delete {product.Description} inventory?", "No", null, "Yes");
         if (deleteProductConfirmation == "Yes")
         {
             IsBusy = true;
@@ -67,7 +67,7 @@ public partial class ViewInventoryProductsPageViewModel : BaseViewModel
             else
             {
                 IsBusy = false;
-                await Shell.Current.DisplayAlert("Error", $"Issues occured while trying to delete the {product.Title} inventory of items.", "OK");
+                await Shell.Current.DisplayAlert("Error", $"Issues occured while trying to delete the {product.Description} inventory of items.", "OK");
             }
         }
     }

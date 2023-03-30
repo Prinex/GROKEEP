@@ -21,7 +21,7 @@
                 </VerticalStackLayout>
             </Frame>
         </VerticalStackLayout>
-        <ActivityIndicator IsVisible="{Binding IsBusy}" IsRunning="{Binding IsBusy}" HorizontalOptions="FillAndExpand" VerticalOptions="CenterAndExpand" Margin="0,-400,0,0"/>
+        <ActivityIndicator IsVisible="{Binding IsBusy}" IsRunning="{Binding IsBusy}" HorizontalOptions="FillAndExpand" VerticalOptions="CenterAndExpand" Margin="0,-410,0,0"/>
         <BoxView WidthRequest="357" HeightRequest="1.5" Margin="0,-350,0,0" Opacity="0.4"/>
 
         <CollectionView ItemsSource="{Binding Inventories}" Margin="0, 265" VerticalOptions="FillAndExpand">
