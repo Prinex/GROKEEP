@@ -7,7 +7,13 @@
     <Color x:Key="Primary">#2feb6d</Color>
     <Color x:Key="Secondary">#DFD8F7</Color>
     <Color x:Key="Tertiary">#00d103</Color>
+    <Color x:Key="Grass">#006400</Color>
+    <Color x:Key="ShapeColor">#99ff99</Color>
+    <Color x:Key="ShapeColor2">#d9f2d9</Color>
     <Color x:Key="White">White</Color>
+    <Color x:Key="Red">Red</Color>
+    <Color x:Key="CardColor">#FAF9F8</Color>
+    <Color x:Key="RootColor">WhiteSmoke</Color>
     <Color x:Key="Black">Black</Color>
     <Color x:Key="Gray100">#E1E1E1</Color>
     <Color x:Key="Gray200">#C8C8C8</Color>

@@ -1,5 +1,5 @@
-namespace Grokeep.Views.Principal;
-
+namespace Grokeep.Views;
+	
 public partial class TermsOfUsePage : ContentPage
 {
 	public TermsOfUsePage()

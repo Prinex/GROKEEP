@@ -2,10 +2,15 @@
 
 public partial class App : Application
 {
+	private static User userSessionData = new User();
+
+	public static User UserSessionData { get => userSessionData; set => userSessionData = value; }
+
 	public App()
 	{
 		InitializeComponent();
-
+		// trial license key for syncfusion (this will be used for plotting charts
+		Syncfusion.Licensing.SyncfusionLicenseProvider.RegisterLicense("Mgo+DSMBaFt+QHFqVkNrXVNbdV5dVGpAd0N3RGlcdlR1fUUmHVdTRHRcQl5hTXxTc0BmWH9YcXQ=;Mgo+DSMBPh8sVXJ1S0d+X1RPd11dXmJWd1p/THNYflR1fV9DaUwxOX1dQl9gSX1RckdjXHpbcXRSQmA=;ORg4AjUWIQA/Gnt2VFhhQlJBfV5AQmBIYVp/TGpJfl96cVxMZVVBJAtUQF1hSn5QdEFhWXpbdXVVTmdc;MTQ2MDkxM0AzMjMxMmUzMTJlMzMzNUQyUzRwY0l3N0tkZm53dlk2bTJLVkNMQjh0cGdhZjNNUmRTOXhOR2Iycmc9;MTQ2MDkxNEAzMjMxMmUzMTJlMzMzNVdNeVN3VGpqRXE0YUlGZ3kxVk9pUzBsM1ZkdXV4ckhjbG9qYnRIemZ1Z1k9;NRAiBiAaIQQuGjN/V0d+XU9Hc1RDX3xKf0x/TGpQb19xflBPallYVBYiSV9jS31TdUdnW39bdXFUR2RUUQ==;MTQ2MDkxNkAzMjMxMmUzMTJlMzMzNU1TckRIVDFQQVdXT0hRK0ZwTHFsOUhrZVp6WlFpSHpwYkwycEZhdTh6cTQ9;MTQ2MDkxN0AzMjMxMmUzMTJlMzMzNUNKT0FTUXprS01YemVwQndiQmMycjYrRXZJTnpRanpPMmVtZVdFTDdJazQ9;Mgo+DSMBMAY9C3t2VFhhQlJBfV5AQmBIYVp/TGpJfl96cVxMZVVBJAtUQF1hSn5QdEFhWXpbdXVXR2Rc;MTQ2MDkxOUAzMjMxMmUzMTJlMzMzNUhIZTc5MWJrV1ZVUEJxZHU2QWZQVEFDMEhSajA2blpwVVZiNmcxb1dxbGs9;MTQ2MDkyMEAzMjMxMmUzMTJlMzMzNURJc1hTRHlkNVFrcXAxbHZPU0xGa2c5TjBxUHRWRW1UN2ExcU16QzBVbm89;MTQ2MDkyMUAzMjMxMmUzMTJlMzMzNU1TckRIVDFQQVdXT0hRK0ZwTHFsOUhrZVp6WlFpSHpwYkwycEZhdTh6cTQ9");
 		MainPage = new AppShell();
 	}
 }
