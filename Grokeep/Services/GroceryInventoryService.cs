@@ -49,5 +49,18 @@ public class GroceryInventoryService : IGroceryInventoryService
         var request = await connection.UpdateAsync(inventory);
         return request > 0;
     }
+
+    public async Task<bool> RemoveInventories(int accountID)
+    {
+        await DBInit();
+        var inventories = await RetrieveInventories(accountID);
+
+        var removeInventory = false;
+        for (int i = 0; i < inventories.Count; i++) 
+        {
+            removeInventory = await RemoveInventory(inventories[i]);
+        }
+        return removeInventory;
+    }
 }
 

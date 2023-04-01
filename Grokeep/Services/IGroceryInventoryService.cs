@@ -5,5 +5,6 @@ public interface IGroceryInventoryService
     Task<bool> AppendInventory(GroceryInventory inventory);
     Task<bool> UpdateInventory(GroceryInventory inventory);
     Task<bool> RemoveInventory(GroceryInventory inventory);
+    Task<bool> RemoveInventories(int accountID);
 }
 

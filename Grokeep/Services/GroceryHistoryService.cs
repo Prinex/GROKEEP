@@ -42,6 +42,19 @@ public class GroceryHistoryService : IGroceryHistoryService
         return request > 0;
     }
 
+    public async Task<bool> RemoveAllHistory(int accountID)
+    {
+        await DBInit();
+        var history = await RetrieveHistory(accountID);
+
+        var delHistory = false;
+        for (int i = 0; i < history.Count; i++) 
+        {
+            delHistory = await RemoveHistory(history[i]);
+        }
+        return delHistory;
+    }
+
     public async Task<bool> UpdateHistory(string previousProduct, Product currentProduct)
     {
         await DBInit();

@@ -56,5 +56,18 @@ public class ProductService : IProductService
         var response = await connection.DeleteAsync(product);
         return response > 0;
     }
+
+    public async Task<bool> DeleteProducts(int inventoryID)
+    {
+        await DBInit();
+        var products = await RetrieveProducts(inventoryID);
+
+        var delProducts = false;
+        for (int i = 0; i < products.Count; i++) 
+        {
+            delProducts = await DeleteProduct(products[i]);
+        }
+        return delProducts;
+    }
 }
 

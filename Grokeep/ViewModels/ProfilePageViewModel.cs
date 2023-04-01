@@ -2,6 +2,9 @@
 public partial class ProfilePageViewModel : BaseViewModel
 {
     private readonly IUserService userService;
+    private readonly IGroceryHistoryService historyService;
+    private readonly IProductService productService;
+    private readonly IGroceryInventoryService inventoryService;
 
     [ObservableProperty]
     string accountUsername;
@@ -9,9 +12,12 @@ public partial class ProfilePageViewModel : BaseViewModel
     [ObservableProperty]
     string accountPassword;
 
-    public ProfilePageViewModel(IUserService userService)
+    public ProfilePageViewModel(IUserService userService, IGroceryHistoryService historyService, IProductService productService, IGroceryInventoryService inventoryService)
     {
         this.userService = userService;
+        this.historyService = historyService;
+        this.productService = productService;
+        this.inventoryService = inventoryService;
 
         if (App.UserSessionData != null)
         {
@@ -92,6 +98,22 @@ public partial class ProfilePageViewModel : BaseViewModel
         if (confirmationRemoveUser == "Remove") 
         {
             IsBusy = true;
+
+            var removeHistory = await historyService.RemoveAllHistory(App.UserSessionData.AccountID);
+            
+            var inventories = await inventoryService.RetrieveInventories(App.UserSessionData.AccountID);
+            
+            for (int i = 0; i < inventories.Count; i++)
+            {
+                var removeProducts = await productService.DeleteProducts(inventories[i].GroceryInventoryID);
+            }
+
+            for (int i = 0; i < inventories.Count; i++)
+            {
+                var removeInventory = await inventoryService.RemoveInventory(inventories[i]);
+            }
+            
+
             var user = await userService.RetrieveUser(App.UserSessionData.Username);
             var removeRequest = await userService.RemoveUser(user);
 
