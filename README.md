@@ -1,4 +1,4 @@
-**GROKEEP**
+**GROKEEP** university project
 
 Tired of searching for the best prices of food items from stores? Don’t know which store to go to do your grocery shopping? You can stop worrying about that with the Grokeep mobile application.
 
